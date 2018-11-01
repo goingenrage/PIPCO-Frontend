@@ -1,0 +1,11 @@
+.container {
+    background-image: linear-gradient(to right, #0b2b54, #1f437c, #345da6, #4b77d1, #6493ff);
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    color: white;
+}
+
+.logo {
+    height: 80px;
+}

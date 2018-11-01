@@ -1,0 +1,19 @@
+<div class="container">
+  <img class="logo" alt="PIPCO" src="assets/img/example_logo.svg">
+  <div class="loginText">
+    <h1>Login</h1>
+    <p>Please enter your usernam and password for verification.</p>
+  </div>
+
+  <form class ="loginForm" (submit)="login($event)">
+    <div>
+        <input type="text" id="username" placeholder="Username" >
+    </div>
+    <div>
+        <input type="password" id="password" placeholder="Password">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
