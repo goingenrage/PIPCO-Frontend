@@ -16,19 +16,19 @@
     flex-direction: column;
 }
 
-.loginForm > *, p, h1{
+.loginForm > *, p, h1 {
     margin: 12px 0;
     font-size:12px;
 }
 
-.loginForm input{
+.loginForm input {
     padding: 10px 0;
     background:transparent;
     min-width: 200px;
     border-bottom: 1px solid #bbb;
 }
 
-.loginForm button{
+.loginForm button {
     padding: 10px 0;
     border-radius: 5px;
     background: #5A8BFF;
@@ -40,22 +40,25 @@
     letter-spacing:1px;
 }
 
-.loginText{
+.loginText {
     color: #bbbbbb;
     font-weight: 200;
     letter-spacing: 1px;
 }
 
-.loginText h1{
+.loginText h1 {
     color:#020202;
     font-style: uppercase;
     letter-spacing: 1px;
     font-weight:700;
     font-size: 24px;
-
 }
 
 .logo {
     height: 80px;
     align-self: flex-end;
+}
+
+.errorText {
+    color: red;
 }

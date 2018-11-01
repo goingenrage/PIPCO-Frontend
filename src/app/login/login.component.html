@@ -2,18 +2,21 @@
   <img class="logo" alt="PIPCO" src="assets/img/example_logo.svg">
   <div class="loginText">
     <h1>Login</h1>
-    <p>Please enter your usernam and password for verification.</p>
+    <p>Please enter your username and password for authentication.</p>
   </div>
 
-  <form class ="loginForm" (submit)="login($event)">
+  <form class="loginForm" (submit)="login($event)">
     <div>
-        <input type="text" id="username" placeholder="Username" >
+        <input type="text" id="username" placeholder="Username" required>
     </div>
     <div>
-        <input type="password" id="password" placeholder="Password">
+        <input type="password" id="password" placeholder="Password" required>
     </div>
+    <p *ngIf="this.wrongLoginInformation" class="errorText">
+      Wrong username or password.
+    </p>
     <div>
-        <button type="submit">Submit</button>
+        <button type="submit">Login</button>
     </div>
   </form>
 </div>

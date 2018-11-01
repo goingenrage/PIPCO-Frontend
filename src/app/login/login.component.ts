@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  private wrongLoginInformation: boolean = false;
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() { }
@@ -18,6 +20,9 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(event.target["username"].value, event.target["password"].value);
     if (this.authService.isAuthenticated){
       this.router.navigate(["main"]);
+    }
+    else {
+      this.wrongLoginInformation = true;
     }
   }
 }
