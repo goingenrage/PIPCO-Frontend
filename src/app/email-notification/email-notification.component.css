@@ -1,0 +1,126 @@
+.rootContainer {
+    width: 500px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f9f9f9;
+
+    -webkit-box-shadow: 3px 3px 12px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 3px 3px 12px 0px rgba(0,0,0,0.1);
+    box-shadow: 3px 3px 12px 0px rgba(0,0,0,0.1);
+}
+
+.deleteButton {
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+    -webkit-user-select: none;     
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    vertical-align: center;
+    color: red;
+    background: transparent;
+    font-size: 24px;
+}
+
+.columnTitlesRow {
+    width: 100%;
+    justify-content:  space-between;
+    padding: 10px 16px 10px 0;
+}
+
+.titleBar {
+    background: #f3f6fd;
+    height: 70px;
+    display: flex;
+    border-left: 3px solid #1DBAE1;
+    padding: 0px 10px 0px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addEmail {
+    display: flex;
+    align-items: center;
+    padding: 15px 0 10px 13px;
+    font-size: 12px;
+}
+
+.addEmail input {
+    width: 100%;
+}
+
+.addEmail button {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: white;
+    border: 1px solid #f9f9f9;
+    flex-basis: 20px;
+    flex-shrink: 0;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.6);
+    
+}
+
+.addEmail input {
+    margin-left: 14px;
+    height: 30px;
+}
+
+.tableContainer {
+    height: 140px;
+    border-width: 1px 0 0 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.tableRow {
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: #f2f2f2 1px solid;
+}
+
+.tableRow:nth-child(even) {
+    background: rgba(249,249,249,0.6);
+}
+
+.tableCell {
+    padding: 0px 4px;
+    display: flex;
+    text-align: center;
+    line-height: 100%;
+    align-items: center;
+    flex-basis:20%;
+    justify-content: center;
+}
+
+.tableCellWide{
+    flex-basis: 80%;
+    justify-content: flex-start;
+}
+
+.tableHead {
+    padding: 8px 4px;
+    font-family: "Roboto";
+    font-size: 12px;
+}
+
+.columnTitlesRow .tableHead:first-of-type {
+    font-weight: bold;
+}
+
+.tableHead, 
+.center {
+    display: flex;
+    align-items: center; 
+}

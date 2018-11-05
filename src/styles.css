@@ -40,6 +40,10 @@ button, select {
     text-transform: none;
 }
 
+button:focus {
+    outline: 0;
+}
+
 body{
     color:#020202;
     font-family: 'Roboto', sans-serif;

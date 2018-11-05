@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { VideoComponent } from './video/video.component';
 import { LoginComponent } from './login/login.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { EmailNotificationComponent } from './email-notification/email-notification.component';
+import { ToggleSwitchComponent } from './toggle-switch/toggle-switch.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { MainpageComponent } from './mainpage/mainpage.component';
     HeaderComponent,
     VideoComponent,
     LoginComponent,
-    MainpageComponent
+    MainpageComponent,
+    EmailNotificationComponent,
+    ToggleSwitchComponent
   ],
   imports: [
     BrowserModule,
