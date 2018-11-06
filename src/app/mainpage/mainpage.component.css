@@ -1,0 +1,13 @@
+.rootContainer {
+    display: flex;
+    margin: 60px 30px;
+}
+
+.videoContainer {
+    width: 48%;
+    margin-right: 4%;
+}
+
+.sideContainer {
+    width: 48%;
+}
