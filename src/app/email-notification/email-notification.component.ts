@@ -10,7 +10,7 @@ import { isNullOrUndefined } from 'util';
 export class EmailNotificationComponent implements OnInit {
 
   private notificationEmails: NotificationEmail[];
-  private isEnabled: boolean = false;
+  private isEnabled: boolean = true;
 
   constructor() { }
 

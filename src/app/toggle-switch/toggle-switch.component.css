@@ -1,3 +1,17 @@
+.toggleSwitchContainer {
+	display: flex;
+}
+
+.switchElement {
+	margin: 0 10px;
+}
+
+p {
+	color: #d3d3d3;
+	cursor: default;
+	user-select: none;
+}
+
 input[type=checkbox] {
     display: none;
 }

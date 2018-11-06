@@ -13,4 +13,8 @@ export class ToggleSwitchComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  public changeValue(event: Event): void {
+    this.switchValue = event.target["checked"];
+  }
 }
