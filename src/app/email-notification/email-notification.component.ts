@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NotificationEmail } from '../shared/models/notification-email';
 import { isNullOrUndefined } from 'util';
 
@@ -9,8 +9,8 @@ import { isNullOrUndefined } from 'util';
 })
 export class EmailNotificationComponent implements OnInit {
 
-  private notificationEmails: NotificationEmail[];
   private isEnabled: boolean = true;
+  private notificationEmails: NotificationEmail[];
 
   constructor() { }
 

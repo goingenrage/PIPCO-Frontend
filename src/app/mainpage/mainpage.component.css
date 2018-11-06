@@ -11,3 +11,7 @@
 .sideContainer {
     width: 48%;
 }
+
+.sideContainer:nth-child(even) {
+    margin-bottom: 50px;
+}

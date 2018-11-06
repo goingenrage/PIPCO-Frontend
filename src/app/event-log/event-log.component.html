@@ -1,14 +1,10 @@
-<div class="emailNotificationContainer">
-    <pipco-title-bar title="E-Mail Notifications" [isEnabled]="this.isEnabled"></pipco-title-bar>
-
-    <form class="addEmail" (submit)="this.addEmail($event)">
-        <button type="submit">+</button>
-        <input type="email" id="email" placeholder="Add E-Mail" required>
-    </form>
+<div class="eventLogContainer">
+    <pipco-title-bar title="Event Log" [isEnabled]="this.isEnabled"></pipco-title-bar>
 
     <div class="tableRow columnTitlesRow">
-        <div class="tableHead tableCell tableCellWide headAdress">E-Mail Adress</div>
-        <div class="tableHead tableCell headNotify">Notifications</div>
+        <div class="tableHead tableCell tableCellWide headAdress">Thumbnail</div>
+        <div class="tableHead tableCell headNotify">Time</div>
+        <div class="tableHead tableCell headDelete">Message</div>
         <div class="tableHead tableCell headDelete">Delete</div>
     </div>
     <div class="tableContainer">
