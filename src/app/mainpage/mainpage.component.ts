@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
+  private videoSource: string = "https://en.ipcams.ch/getCamHandlerMjpg.aspx?nr=2954&rand=3935";
+
   constructor() { }
 
   ngOnInit() {

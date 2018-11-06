@@ -18,40 +18,38 @@ export class EmailNotificationComponent implements OnInit {
     this.notificationEmails = 
     [
       {
-        emailAdress: "adress1",
+        emailAdress: "adress1@web.de",
         notify: true
       },{
-        emailAdress: "adress2",
+        emailAdress: "adress2@web.de",
         notify: true
       },{
-        emailAdress: "adress3",
+        emailAdress: "adress3@web.de",
         notify: true
       },{
-        emailAdress: "adress4",
+        emailAdress: "adress4@web.de",
         notify: false
       },{
-        emailAdress: "adress5",
+        emailAdress: "adress5@web.de",
         notify: true
       },{
-        emailAdress: "adress6",
+        emailAdress: "adress6@web.de",
         notify: true
       },{
-        emailAdress: "adress7",
+        emailAdress: "adress7@web.de",
         notify: false
       },{
-        emailAdress: "adress8",
+        emailAdress: "adress8@web.de",
         notify: true
       },{
-        emailAdress: "adress9",
+        emailAdress: "adress9@web.de",
         notify: false
       }
     ]
   }
 
-  public toggleEmailNotifications(emailAdress: NotificationEmail): void {
-    console.log(emailAdress.notify);
-    emailAdress.notify = !emailAdress.notify;
-    console.log(emailAdress.notify);
+  public toggleEmailNotifications(event: Event, emailAdress: NotificationEmail): void {
+    emailAdress.notify = event.target["checked"];
   }
 
   public addEmail(event: Event): void {

@@ -1,4 +1,4 @@
-<div class="rootContainer">
+<div class="emailNotificationContainer">
     <div class="titleBar">
       <p>E-Mail Notifications</p>
       <pipco-toggle-switch [switchValue]=this.isEnabled></pipco-toggle-switch>
@@ -18,7 +18,7 @@
       <div class="tableRow" *ngFor="let notificationEmail of this.notificationEmails">
           <div class="tableCell tableCellWide columnAdress">{{ notificationEmail.emailAdress }}</div>
           <div class="tableCell columnNotify">
-              <input class="" type="checkbox" [checked]="notificationEmail.notify" (change)="this.toggleEmailNotifications(notificationEmail)">
+              <input class="" type="checkbox" [checked]="notificationEmail.notify" (input)="this.toggleEmailNotifications($event, notificationEmail)">
           </div>
           <div class="tableCell columnDelete">
             <button type="button" class="deleteButton" (click)="this.removeEmail(notificationEmail)">+</button>

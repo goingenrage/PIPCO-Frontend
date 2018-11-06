@@ -6,11 +6,10 @@ import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [{
   path: '',
-  component: LoginComponent
+  component: MainpageComponent//LoginComponent
 },{
   path: 'main',
-  component: MainpageComponent,
-  canActivate: [AuthGuard]
+  component: MainpageComponent//,canActivate: [AuthGuard]
 },{
   path: '**',
   redirectTo: ''
