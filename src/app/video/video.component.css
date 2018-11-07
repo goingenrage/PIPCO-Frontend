@@ -1,4 +1,12 @@
 img {
     width: 100%;
-    height: calc(100vh - 200px);
+}
+
+.videoTitleContainer {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-weight: bold;
 }

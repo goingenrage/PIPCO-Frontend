@@ -4,7 +4,8 @@
 }
 
 .videoContainer {
-    width: 48%;
+    width: 40%;
+    min-width: 600px;
     margin-right: 4%;
 }
 

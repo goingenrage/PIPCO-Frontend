@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class VideoComponent implements OnInit {
 
   @Input() sourceUrl: string;
+  private videoTitle: string = "IP Camera Live Stream.";
 
   constructor() { }
 
