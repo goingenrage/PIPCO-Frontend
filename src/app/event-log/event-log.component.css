@@ -38,7 +38,7 @@
 }
 
 .tableContainer {
-    height: 140px;
+    height: 340px;
     border-width: 1px 0 0 0;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -84,4 +84,9 @@
 .center {
     display: flex;
     align-items: center; 
+}
+
+.columnThumbnail {
+    max-width: 60px;
+    max-height: 50px;
 }

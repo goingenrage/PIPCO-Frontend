@@ -30,18 +30,6 @@ export class EmailNotificationComponent implements OnInit {
         emailAdress: "adress4@web.de",
         notify: false
       },{
-        emailAdress: "adress5@web.de",
-        notify: true
-      },{
-        emailAdress: "adress6@web.de",
-        notify: true
-      },{
-        emailAdress: "adress7@web.de",
-        notify: false
-      },{
-        emailAdress: "adress8@web.de",
-        notify: true
-      },{
         emailAdress: "adress9@web.de",
         notify: false
       }

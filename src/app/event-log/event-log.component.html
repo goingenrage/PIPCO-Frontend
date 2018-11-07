@@ -8,14 +8,13 @@
         <div class="tableHead tableCell headDelete">Delete</div>
     </div>
     <div class="tableContainer">
-      <div class="tableRow" *ngFor="let notificationEmail of this.notificationEmails">
-          <div class="tableCell tableCellWide columnAdress">{{ notificationEmail.emailAdress }}</div>
-          <div class="tableCell columnNotify">
-              <input class="" type="checkbox" [checked]="notificationEmail.notify" (input)="this.toggleEmailNotifications($event, notificationEmail)">
-          </div>
-          <div class="tableCell columnDelete">
-            <button type="button" class="deleteButton" (click)="this.removeEmail(notificationEmail)">+</button>
-          </div>
-      </div>
+        <div class="tableRow" *ngFor="let eventLogEntry of this.eventLogEntries">
+            <img class="tableCell tableCellWide columnThumbnail" alt="Thumbnail" [src]=eventLogEntry.thumbnailSrc>
+            <div class="tableCell">{{ eventLogEntry.timestamp.getTime() }}</div>
+            <div class="tableCell">{{ eventLogEntry.message }}</div>
+            <div class="tableCell columnDelete">
+                <button type="button" class="deleteButton" (click)="this.removeEmail(notificationEmail)">+</button>
+            </div>
+        </div>
     </div>
   </div>
