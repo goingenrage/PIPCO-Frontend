@@ -19,7 +19,7 @@ export class EventLogComponent implements OnInit {
       {
         thumbnailSrc: "assets/img/example_thumbnail.jpg",
         timestamp: new Date(),
-        message: "Event 1"
+        message: "A motion has been detected 1."
       },{
         thumbnailSrc: "assets/img/example_thumbnail.jpg",
         timestamp: new Date(),

@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     border: 1px solid #f9f9f9;
+    min-width: 500px;
 
     box-shadow: 3px 3px 12px 0px rgba(0,0,0,0.1);
 }
@@ -51,12 +52,10 @@
     text-align: center;
     line-height: 100%;
     align-items: center;
-    flex-basis: 20%;
     justify-content: center;
 }
 
 .tableCellWide{
-    flex-basis: 80%;
     justify-content: flex-start;
 }
 
@@ -76,8 +75,21 @@
     align-items: center; 
 }
 
-.thumbnail {
-    max-width: 60px;
+.columnThumbnail {
+    max-width: 70px;
     max-height: 50px;
     cursor: pointer;
+    flex-basis: 10%;
+}
+
+.columnTimestamp {
+    flex-basis: 40%;
+}
+
+.columnMessage {
+    flex-basis: 40%;
+}
+
+.columnDelete {
+    flex-basis: 10%;
 }
