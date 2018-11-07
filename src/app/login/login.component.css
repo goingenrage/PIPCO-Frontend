@@ -55,8 +55,8 @@
     font-size: 24px;
 }
 
-.logo {
-    height: 80px;
+img {
+    height: 32px;
     align-self: flex-end;
 }
 
