@@ -1,4 +1,4 @@
 <div class="headerContainer">
-  <img alt="PIPCO" src="assets/img/pipco_logo_white.svg">
-  <img *ngIf="this.authService?.isAuthenticated === true" (click)="logout()" class="logout" alt="Logout" src="assets/img/logout.svg">
+  <img alt="PIPCO" src="assets/img/pipco_logo_white.svg" (click)="refresh()" title="Refresh Page">
+  <img *ngIf="this.authService?.isAuthenticated === true" (click)="logout()" title="Logout" alt="Logout" src="assets/img/logout.svg">
 </div>

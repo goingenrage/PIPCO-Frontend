@@ -11,6 +11,7 @@ import { EmailNotificationComponent } from './email-notification/email-notificat
 import { EventLogComponent } from './event-log/event-log.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
 import { UiSwitchModule } from 'ngx-toggle-switch';
+import { VideoSettingsComponent } from './video-settings/video-settings.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UiSwitchModule } from 'ngx-toggle-switch';
     MainpageComponent,
     EmailNotificationComponent,
     EventLogComponent,
-    TitleBarComponent
+    TitleBarComponent,
+    VideoSettingsComponent
   ],
   imports: [
     BrowserModule,

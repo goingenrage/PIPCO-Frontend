@@ -21,4 +21,8 @@ export class HeaderComponent implements OnInit {
     this.authService.isAuthenticated = false;
     this.router.navigate([""]);
   }
+
+  public refresh() {
+    location.reload();
+  }
 }
