@@ -56,4 +56,7 @@ export class EventLogComponent implements OnInit {
     ]
   }
 
+  public removeEventLogEntry(eventLogEntryToRemove: EventLogEntry): void {
+    this.eventLogEntries = this.eventLogEntries.filter(eventLogEntry => eventLogEntry != eventLogEntryToRemove);
+  }
 }

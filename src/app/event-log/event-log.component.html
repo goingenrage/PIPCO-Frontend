@@ -13,7 +13,7 @@
             <div class="tableCell">{{ eventLogEntry.timestamp.getTime() }}</div>
             <div class="tableCell">{{ eventLogEntry.message }}</div>
             <div class="tableCell columnDelete">
-                <button type="button" class="deleteButton" (click)="this.removeEmail(notificationEmail)">+</button>
+                <button type="button" class="deleteButton" (click)="this.removeEventLogEntry(eventLogEntry)">+</button>
             </div>
         </div>
     </div>
