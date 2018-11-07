@@ -1,10 +1,10 @@
-.container {
+.loginContainer {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     padding: 50px;
     max-width: 500px;
-    margin-top: 75px;
+    margin-top: 18vh;
     border: 1px solid #f9f9f9;
 
     -webkit-box-shadow: 3px 3px 12px 0px rgba(0,0,0,0.1);
