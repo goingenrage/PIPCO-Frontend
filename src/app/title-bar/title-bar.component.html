@@ -1,4 +1,8 @@
 <div class="titleBarContainer">
-  <p>{{ this.title }}</p>
-  <pipco-toggle-switch [switchValue]=this.isEnabled></pipco-toggle-switch>
+  <h1>{{ this.title }}</h1>
+  <div class="toggleSwitchContainer">
+    <p>OFF</p>
+    <ui-switch [(ngModel)]="this.isEnabled" size="small" color="#4E7AB5"></ui-switch>
+    <p>ON</p>
+  </div>
 </div>

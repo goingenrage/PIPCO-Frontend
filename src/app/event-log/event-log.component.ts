@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EventLogComponent implements OnInit {
 
-  private isEnabled: boolean = true;
+  private isEnabled: boolean = false;
 
   constructor() { }
 

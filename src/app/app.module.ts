@@ -8,9 +8,9 @@ import { VideoComponent } from './video/video.component';
 import { LoginComponent } from './login/login.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { EmailNotificationComponent } from './email-notification/email-notification.component';
-import { ToggleSwitchComponent } from './toggle-switch/toggle-switch.component';
 import { EventLogComponent } from './event-log/event-log.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 @NgModule({
   declarations: [
@@ -20,13 +20,13 @@ import { TitleBarComponent } from './title-bar/title-bar.component';
     LoginComponent,
     MainpageComponent,
     EmailNotificationComponent,
-    ToggleSwitchComponent,
     EventLogComponent,
     TitleBarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UiSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
