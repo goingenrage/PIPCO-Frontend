@@ -15,7 +15,7 @@
       <div class="tableRow" *ngFor="let notificationEmail of this.notificationEmails">
           <div class="tableCell tableCellWide columnAdress">{{ notificationEmail.emailAdress }}</div>
           <div class="tableCell columnNotify">
-              <input class="" type="checkbox" [checked]="notificationEmail.notify" (input)="this.toggleEmailNotifications($event, notificationEmail)">
+              <input class="" type="checkbox" [(ngModel)]="notificationEmail.notify">
           </div>
           <div class="tableCell columnDelete">
             <button type="button" class="deleteButton" (click)="this.removeEmail(notificationEmail)">+</button>

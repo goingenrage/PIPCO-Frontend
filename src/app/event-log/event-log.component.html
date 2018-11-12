@@ -9,7 +9,9 @@
     </div>
     <div class="tableContainer">
         <div class="tableRow" *ngFor="let eventLogEntry of this.eventLogEntries">
-            <img class="tableCell columnThumbnail" alt="Thumbnail" [src]=eventLogEntry.thumbnailSrc>
+            <div class="tableCell columnThumbnail">
+                <img class="thumbnail" alt="Thumbnail" [src]=eventLogEntry.thumbnailSrc>
+            </div>
             <div class="tableCell columnTimestamp">{{ eventLogEntry.timestamp.toLocaleString() }}</div>
             <div class="tableCell columnMessage">{{ eventLogEntry.message }}</div>
             <div class="tableCell columnDelete">

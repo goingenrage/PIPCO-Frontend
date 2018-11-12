@@ -78,8 +78,19 @@
 .columnThumbnail {
     max-width: 70px;
     max-height: 50px;
+    padding: 10px;
     cursor: pointer;
     flex-basis: 10%;
+}
+
+.thumbnail {
+    transition: all .1s ease-in-out;
+    max-width: 50px;
+    max-height: 40px;
+}
+
+.thumbnail:hover {
+    transform: scale(1.3);
 }
 
 .columnTimestamp {
