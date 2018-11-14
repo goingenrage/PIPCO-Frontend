@@ -12,6 +12,7 @@ import { EventLogComponent } from './event-log/event-log.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 import { VideoSettingsComponent } from './video-settings/video-settings.component';
+import { RangeSliderComponent } from './range-slider/range-slider.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { VideoSettingsComponent } from './video-settings/video-settings.componen
     EmailNotificationComponent,
     EventLogComponent,
     TitleBarComponent,
-    VideoSettingsComponent
+    VideoSettingsComponent,
+    RangeSliderComponent
   ],
   imports: [
     BrowserModule,
