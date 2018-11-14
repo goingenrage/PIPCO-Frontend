@@ -9,7 +9,8 @@ export class RangeSliderComponent implements OnInit {
   @Input() min: number;
   @Input() max: number;
   @Input() value: number;
-  @Input() color: string;
+  @Input() color1: string = "#1f437c";
+  @Input() color2: string = "#c7c7c7";
 
   private sliderValue: number;
   private sliderBackground: Object;
@@ -35,8 +36,8 @@ export class RangeSliderComponent implements OnInit {
         "linear," +
         "left top," +
         "right top," +
-        "color-stop("+ colorStopPos + ", #047a9c)," +
-        "color-stop(" + colorStopPos + ", #c7c7c7)"
+        "color-stop("+ colorStopPos + ", " + this.color1 + ")," +
+        "color-stop(" + colorStopPos + ", " + this.color2 + ")"
     }
   }
 }
