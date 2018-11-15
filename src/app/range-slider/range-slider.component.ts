@@ -15,7 +15,7 @@ export class RangeSliderComponent implements OnInit {
   @Output() valueChange = new EventEmitter<number>();
 
   private sliderValue: number;
-  private sliderBackground: Object;
+  private sliderBackgroundStyle: Object;
 
   constructor() { }
 
@@ -32,7 +32,7 @@ export class RangeSliderComponent implements OnInit {
 
   private updateSliderBackground() {
     const colorStopPos: number = this.sliderValue / 100;
-    this.sliderBackground = {
+    this.sliderBackgroundStyle = {
       "background-image": "-webkit-gradient(" +
         "linear," +
         "left top," +

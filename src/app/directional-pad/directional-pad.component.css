@@ -1,0 +1,14 @@
+.direction-zone {
+    cursor: pointer;
+}
+
+.direction-bg:hover {
+    fill: rgba(black, .1);
+    transition: all .3s ease;
+}
+
+svg {
+    height: 140px;
+    width: 140px;
+    margin: 0 60px;
+}
