@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'pipco-range-slider',
@@ -12,6 +12,8 @@ export class RangeSliderComponent implements OnInit {
   @Input() color1: string = "#1f437c";
   @Input() color2: string = "#c7c7c7";
 
+  @Output() valueChange = new EventEmitter<number>();
+
   private sliderValue: number;
   private sliderBackground: Object;
 
@@ -24,9 +26,8 @@ export class RangeSliderComponent implements OnInit {
 
   private onSliderChanges() {
     this.value = ((this.sliderValue / 100) * (this.max - this.min)) + this.min;
+    this.valueChange.emit(this.value);
     this.updateSliderBackground();
-
-    console.log(this.sliderValue + "   " + this.value)
   }
 
   private updateSliderBackground() {

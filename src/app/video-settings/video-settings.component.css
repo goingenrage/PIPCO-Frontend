@@ -1,0 +1,12 @@
+.videoSettingsContainer {
+    width: 100%;
+    display: flex;
+}
+
+.leftSplit {
+    width: 50%;
+}
+
+.rightSplit {
+    width: 50%;
+}

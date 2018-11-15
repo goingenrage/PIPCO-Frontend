@@ -1,2 +1,14 @@
-Video Settings
-<pipco-range-slider [min]="-100" [max]="100" [value]="50" [color1]="'blue'"></pipco-range-slider>
+<h1>Video Settings</h1>
+<div class="videoSettingsContainer">
+    <div class="leftSplit">
+        <h2>Sensitivity</h2>
+        <pipco-range-slider [min]="0" [max]="1000" [(value)]="this.sensitivityValue" [color1]="'#431ede'"></pipco-range-slider>
+        <h2>Contrast</h2>
+        <pipco-range-slider [min]="-100" [max]="100" [(value)]="this.contrastValue" [color1]="'#26b6d9'"></pipco-range-slider>
+        <h2>Brightness</h2>
+        <pipco-range-slider [min]="0" [max]="200" [(value)]="this.brightnessValue" [color1]="'#4987f6'"></pipco-range-slider>
+    </div>
+    <div class="rightSplit">
+        <button (click)="this.test()">test</button>
+    </div>
+</div>
