@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NotificationEmail } from '../shared/models/notification-email';
-import { isNullOrUndefined } from 'util';
+import { EmailService } from '../shared/email.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'pipco-email-notification',
@@ -9,28 +10,34 @@ import { isNullOrUndefined } from 'util';
 })
 export class EmailNotificationComponent implements OnInit {
 
+  private subscriptions: Subscription[] = [];
   private isEnabled: boolean = true;
   private notificationEmails: NotificationEmail[];
 
-  constructor() { }
+  constructor(private emailService: EmailService) { }
 
   ngOnInit() {
+
+    this.subscriptions.push(this.emailService.getNotificationEmails().subscribe(result => {
+      console.log(result);
+    }));
+
     this.notificationEmails = 
     [
       {
-        emailAdress: "adress1@web.de",
+        adress: "adress1@web.de",
         notify: true
       },{
-        emailAdress: "adress2@web.de",
+        adress: "adress2@web.de",
         notify: true
       },{
-        emailAdress: "adress3@web.de",
+        adress: "adress3@web.de",
         notify: true
       },{
-        emailAdress: "adress4@web.de",
+        adress: "adress4@web.de",
         notify: false
       },{
-        emailAdress: "adress9@web.de",
+        adress: "adress9@web.de",
         notify: false
       }
     ]
@@ -43,9 +50,9 @@ export class EmailNotificationComponent implements OnInit {
   public addEmail(event: Event): void {
     event.preventDefault();
     const newEmailAdress: string = event.target["email"].value;
-    if (this.notificationEmails.find(notificationEmail => notificationEmail.emailAdress === newEmailAdress) === undefined) {
+    if (this.notificationEmails.find(notificationEmail => notificationEmail.adress === newEmailAdress) === undefined) {
       this.notificationEmails.push({
-        emailAdress: newEmailAdress,
+        adress: newEmailAdress,
         notify: true
       });
     }

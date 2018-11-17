@@ -15,6 +15,8 @@ import { VideoSettingsComponent } from './video-settings/video-settings.componen
 import { RangeSliderComponent } from './range-slider/range-slider.component';
 import { GenericButtonComponent } from './generic-button/generic-button.component';
 import { DirectionalPadComponent } from './directional-pad/directional-pad.component';
+import { EmailService } from './shared/email.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,14 @@ import { DirectionalPadComponent } from './directional-pad/directional-pad.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UiSwitchModule
+    UiSwitchModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    EmailService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
