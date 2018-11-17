@@ -1,12 +1,5 @@
 .videoSettingsContainer {
     width: 100%;
     display: flex;
-}
-
-.leftSplit {
-    width: calc(100% - 200px);
-}
-
-.rightSplit {
-    width: 50%;
+    flex-direction: column;
 }
