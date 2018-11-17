@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { NotificationEmail } from '../shared/models/notification-email';
 import { EmailService } from '../shared/email.service';
 import { Subscription } from 'rxjs';
@@ -12,35 +12,18 @@ export class EmailNotificationComponent implements OnInit {
 
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = true;
-  private notificationEmails: NotificationEmail[];
+  private notificationEmails: NotificationEmail[] = [];
 
   constructor(private emailService: EmailService) { }
 
   ngOnInit() {
-
     this.subscriptions.push(this.emailService.getNotificationEmails().subscribe(result => {
-      console.log(result);
+      this.notificationEmails = this.notificationEmails.concat(result);
     }));
+  }
 
-    this.notificationEmails = 
-    [
-      {
-        adress: "adress1@web.de",
-        notify: true
-      },{
-        adress: "adress2@web.de",
-        notify: true
-      },{
-        adress: "adress3@web.de",
-        notify: true
-      },{
-        adress: "adress4@web.de",
-        notify: false
-      },{
-        adress: "adress9@web.de",
-        notify: false
-      }
-    ]
+  ngOnDestroy() {
+    this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
   public toggleEmailNotifications(event: Event, emailAdress: NotificationEmail): void {
@@ -50,10 +33,11 @@ export class EmailNotificationComponent implements OnInit {
   public addEmail(event: Event): void {
     event.preventDefault();
     const newEmailAdress: string = event.target["email"].value;
-    if (this.notificationEmails.find(notificationEmail => notificationEmail.adress === newEmailAdress) === undefined) {
+    if (this.notificationEmails.find(notificationEmail => notificationEmail.address === newEmailAdress) === undefined) {
       this.notificationEmails.push({
-        adress: newEmailAdress,
-        notify: true
+        address: newEmailAdress,
+        notify: true,
+        id: 1
       });
     }
   }

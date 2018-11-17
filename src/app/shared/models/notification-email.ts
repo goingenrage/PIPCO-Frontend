@@ -1,4 +1,5 @@
 export interface NotificationEmail {
-    adress: string;
+    address: string;
     notify: boolean;
+    id: number;
 }

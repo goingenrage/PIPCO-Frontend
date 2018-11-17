@@ -13,7 +13,7 @@
     </div>
     <div class="tableContainer">
       <div class="tableRow" *ngFor="let notificationEmail of this.notificationEmails">
-          <div class="tableCell tableCellWide columnAdress">{{ notificationEmail.emailAdress }}</div>
+          <div class="tableCell tableCellWide columnAdress">{{ notificationEmail.address }}</div>
           <div class="tableCell columnNotify">
               <input class="" type="checkbox" [(ngModel)]="notificationEmail.notify">
           </div>
