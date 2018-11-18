@@ -26,8 +26,12 @@ export class EmailNotificationComponent implements OnInit {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
-  public toggleEmailNotifications(event: Event, emailAdress: NotificationEmail): void {
-    emailAdress.notify = event.target["checked"];
+  public toggleEmailNotifications(event: Event, notificationEmail: NotificationEmail): void {
+    notificationEmail.notify = event.target["checked"];
+    
+    this.subscriptions.push(this.emailService.changeEmailNotificationStatus(notificationEmail.id).subscribe(result => {
+      console.log("result: " + result);
+    }))
   }
 
   public addEmail(event: Event): void {

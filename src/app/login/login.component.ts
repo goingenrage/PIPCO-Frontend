@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
+import { LoginCredentials } from '../shared/models/login-credentials';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'pipco-login',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  private subscriptions: Subscription[] = [];
   private wrongLoginInformation: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -17,12 +19,17 @@ export class LoginComponent implements OnInit {
 
   public login(event: Event) {
     event.preventDefault();
-    this.authService.authenticate(event.target["username"].value, event.target["password"].value);
-    if (this.authService.isAuthenticated){
-      this.router.navigate(["main"]);
+    const loginCredentials: LoginCredentials = {
+      user: event.target["username"].value,
+      password: event.target["password"].value
     }
-    else {
-      this.wrongLoginInformation = true;
-    }
+    this.subscriptions.push(this.authService.authenticate(loginCredentials).subscribe(result => {
+      if (this.authService.isAuthenticated) {
+        this.router.navigate(["main"]);
+      }
+      else {
+        this.wrongLoginInformation = true;
+      }
+    }))
   }
 }

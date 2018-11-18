@@ -14,4 +14,8 @@ export class EmailService {
   public getNotificationEmails(): Observable<NotificationEmail[]> {
     return this.http.get<NotificationEmail[]>(environment.backendAdress + "/mails");
   }
+
+  public changeEmailNotificationStatus(emailId: number): Observable<boolean> {
+    return this.http.put<boolean>(environment.backendAdress + "/mails/" + emailId, "void", environment.backendHttpOptions);
+  }
 }
