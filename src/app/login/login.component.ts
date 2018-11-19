@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
       password: event.target["password"].value
     }
     this.subscriptions.push(this.authService.authenticate(loginCredentials).subscribe(result => {
-      console.log(this.authService.isAuthenticated)
       if (this.authService.isAuthenticated) {
         this.router.navigate(["main"]);
       }
