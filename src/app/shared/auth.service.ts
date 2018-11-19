@@ -15,7 +15,18 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public authenticate(loginCredentials: LoginCredentials): Observable<boolean> {
-    return this.http.post<boolean>(environment.backendAdress + "/login", loginCredentials, environment.backendHttpOptions);
+    let promise = this.http.post<boolean>(environment.backendAdress + "/login", loginCredentials, environment.backendHttpOptions)
+
+    
+    return new Observable(observer => {
+      promise.subscribe(result => {
+        if (result) {
+          this.isAuthenticated = true;
+        };
+        observer.next(this.isAuthenticated);
+        observer.complete();
+      });
+    });
   }
 /*
     if (username === "user" && password === "geheim") {
