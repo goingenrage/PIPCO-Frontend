@@ -15,7 +15,11 @@ export class EmailService {
     return this.http.get<NotificationEmail[]>(environment.backendAdress + "/mails");
   }
 
-  public toggleEmailNotificationStatus(emailId: number): Observable<boolean> {
-    return this.http.put<boolean>(environment.backendAdress + "/mail/" + emailId, environment.backendHttpOptions);
+  public toggleEmailNotificationStatus(emailId: number): Observable<object> {
+    return this.http.put(environment.backendAdress + "/mail/" + emailId, environment.backendHttpOptions);
+  }
+
+  public addNewEmail(address: string): Observable<NotificationEmail> {
+    return this.http.post<NotificationEmail>(environment.backendAdress + "/mail", {"mail": address}, environment.backendHttpOptions);
   }
 }

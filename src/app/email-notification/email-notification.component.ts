@@ -36,12 +36,15 @@ export class EmailNotificationComponent implements OnInit {
     event.preventDefault();
     const newEmailAdress: string = event.target["email"].value;
     if (this.notificationEmails.find(notificationEmail => notificationEmail.address === newEmailAdress) === undefined) {
-      this.notificationEmails.push({
-        address: newEmailAdress,
-        notify: true,
-        id: 1
-      });
-    }
+      this.subscriptions.push(this.emailService.addNewEmail(newEmailAdress).subscribe(result => {
+        console.log(result);
+        this.notificationEmails.push({
+          address: newEmailAdress,
+          id: result["id"],
+          notify: true
+        });
+      }));
+    };
   }
 
   public removeEmail(emailAdress: NotificationEmail): void {
