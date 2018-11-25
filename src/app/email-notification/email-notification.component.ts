@@ -37,17 +37,19 @@ export class EmailNotificationComponent implements OnInit {
     const newEmailAdress: string = event.target["email"].value;
     if (this.notificationEmails.find(notificationEmail => notificationEmail.address === newEmailAdress) === undefined) {
       this.subscriptions.push(this.emailService.addNewEmail(newEmailAdress).subscribe(result => {
-        console.log(result);
         this.notificationEmails.push({
           address: newEmailAdress,
-          id: result["id"],
+          id: result["mail_id"],
           notify: true
         });
       }));
     };
   }
 
-  public removeEmail(emailAdress: NotificationEmail): void {
-    this.notificationEmails = this.notificationEmails.filter(notificationEmail => notificationEmail != emailAdress);
+  public removeEmail(id: number): void {
+    this.subscriptions.push(this.emailService.removeEmail(id).subscribe(result => {
+      console.log(result);
+      this.notificationEmails = this.notificationEmails.filter(notificationEmail => notificationEmail.id != result["mail_id"]);
+    }));
   }
 }
