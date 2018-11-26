@@ -48,7 +48,6 @@ export class EmailNotificationComponent implements OnInit {
 
   public removeEmail(id: number): void {
     this.subscriptions.push(this.emailService.removeEmail(id).subscribe(result => {
-      console.log(result);
       this.notificationEmails = this.notificationEmails.filter(notificationEmail => notificationEmail.id != result["mail_id"]);
     }));
   }

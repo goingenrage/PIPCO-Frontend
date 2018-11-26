@@ -7,15 +7,15 @@
         <div class="tableHead tableCell columnMessage">Message</div>
         <div class="tableHead tableCell columnDelete">Delete</div>
     </div>
-    <div class="tableContainer">
+    <div class="tableContainer" (scroll)="this.onTableScroll($event)">
         <div class="tableRow" *ngFor="let eventLogEntry of this.eventLogEntries">
             <div class="tableCell columnThumbnail">
-                <img class="thumbnail" alt="Thumbnail" [src]=eventLogEntry.thumbnailSrc>
+                <img class="thumbnail" alt="Thumbnail" [src]=eventLogEntry.thumbnail>
             </div>
             <div class="tableCell columnTimestamp">{{ eventLogEntry.timestamp.toLocaleString() }}</div>
             <div class="tableCell columnMessage">{{ eventLogEntry.message }}</div>
             <div class="tableCell columnDelete">
-                <button type="button" class="deleteButton" (click)="this.removeEventLogEntry(eventLogEntry)">+</button>
+                <button type="button" class="deleteButton" (click)="this.removeEventLogEntry(eventLogEntry.id)">+</button>
             </div>
         </div>
     </div>

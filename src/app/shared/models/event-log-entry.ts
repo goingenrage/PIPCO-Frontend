@@ -1,5 +1,6 @@
 export interface EventLogEntry {
-    thumbnailSrc: string;
-    timestamp: Date;
+    id: number;
     message: string;
+    timestamp: Date;
+    thumbnail: string 
 }
