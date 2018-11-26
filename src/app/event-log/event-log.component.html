@@ -10,7 +10,7 @@
     <div class="tableContainer" (scroll)="this.onTableScroll($event)">
         <div class="tableRow" *ngFor="let eventLogEntry of this.eventLogEntries">
             <div class="tableCell columnThumbnail">
-                <img class="thumbnail" alt="Thumbnail" [src]=eventLogEntry.thumbnail>
+                <img class="thumbnail" alt="Thumbnail" [src]='this.domSanitizer.bypassSecurityTrustUrl("data:image/png;base64, " + eventLogEntry.thumbnail)'>
             </div>
             <div class="tableCell columnTimestamp">{{ eventLogEntry.timestamp.toLocaleString() }}</div>
             <div class="tableCell columnMessage">{{ eventLogEntry.message }}</div>

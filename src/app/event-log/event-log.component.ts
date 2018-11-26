@@ -3,6 +3,7 @@ import { EventLogEntry } from '../shared/models/event-log-entry';
 import { EventService } from '../shared/event.service';
 import { Subscription, interval } from 'rxjs';
 import { startWith, switchMap } from "rxjs/operators";
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'pipco-event-log',
@@ -17,14 +18,14 @@ export class EventLogComponent implements OnInit {
   private nextEventLogPageToFetch: number = 0;
   private eventLogPageSize: number = 10;
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
       this.eventLogEntries = result;
     }));
 
-    interval(15000)
+    interval(7000)
       .pipe(
         startWith(0),
         switchMap(() => this.eventService.getEventLogEntries(0, this.eventLogPageSize))
