@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EventLogEntry } from '../shared/models/event-log-entry';
 import { EventService } from '../shared/event.service';
-import { Subscription } from 'rxjs';
+import { Subscription, interval } from 'rxjs';
+import { startWith, switchMap } from "rxjs/operators";
 
 @Component({
   selector: 'pipco-event-log',
@@ -13,7 +14,7 @@ export class EventLogComponent implements OnInit {
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = false;
   private eventLogEntries: EventLogEntry[];
-  private nextEventLogPageToFetch: number = 1;
+  private nextEventLogPageToFetch: number = 0;
   private eventLogPageSize: number = 10;
 
   constructor(private eventService: EventService) { }
@@ -22,6 +23,16 @@ export class EventLogComponent implements OnInit {
     this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
       this.eventLogEntries = result;
     }));
+
+    interval(15000)
+      .pipe(
+        startWith(0),
+        switchMap(() => this.eventService.getEventLogEntries(0, this.eventLogPageSize))
+      )
+      .subscribe(result => {
+        let newEventLogEntries: EventLogEntry[] = result.filter(entry => this.eventLogEntries.slice(0, result.length).find(element => element.id === entry.id) === undefined);
+        this.eventLogEntries = newEventLogEntries.concat(this.eventLogEntries);
+      });
   }
 
   public removeEventLogEntry(id: number): void {
