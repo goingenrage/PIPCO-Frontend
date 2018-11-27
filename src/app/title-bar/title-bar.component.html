@@ -1,8 +1,8 @@
 <div class="titleBarContainer">
-  <h1>{{ this.title }}</h1>
+  <div class="title">{{ this.title }}</div>
   <div class="toggleSwitchContainer">
-    <p>OFF</p>
+    <div class="toggleSwitchText">OFF</div>
     <ui-switch [(ngModel)]="this.isEnabled" size="small" color="#4E7AB5"></ui-switch>
-    <p>ON</p>
+    <div class="toggleSwitchText">ON</div>
   </div>
 </div>

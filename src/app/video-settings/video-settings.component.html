@@ -2,9 +2,9 @@
     <div class="componentTitle">Video Settings</div>
 
     <div class="sectionTitle">Source Livestream URL</div>
-    <form class="updateStreamUrlForm" (submit)="this.onSettingsChange({streamaddress: $event.target['inputStreamUrl'].value})">
-        <input type="text" id="inputStreamUrl" value="{{ this.settings.streamaddress }}" required>
-        <button type="submit" id="changeStreamUrlButton">Update</button>
+    <form class="updateStreamAddressForm" (submit)="this.onSettingsChange({streamaddress: $event.target['inputStreamUrl'].value})">
+        <input type="text" id="updateStreamAddressTextbox" value="{{ this.settings.streamaddress }}" required>
+        <button type="submit" id="updateStreamAddressButton">UPDATE</button>
     </form>
 
     <div class="sectionTitle">Sensitivity</div>

@@ -32,9 +32,9 @@ export class EmailNotificationComponent implements OnInit {
     }));
   }
 
-  public addEmail(event: Event): void {
+  public addEmailAddress(event: Event): void {
     event.preventDefault();
-    const newEmailAdress: string = event.target["email"].value;
+    const newEmailAdress: string = event.target["emailAddressInput"].value;
     if (this.notificationEmails.find(notificationEmail => notificationEmail.address === newEmailAdress) === undefined) {
       this.subscriptions.push(this.emailService.addNewEmail(newEmailAdress).subscribe(result => {
         this.notificationEmails.push({

@@ -1,46 +1,52 @@
 .videoSettingsContainer {
     width: 100%;
     margin-top: 40px;
+
     display: flex;
     flex-direction: column;
 }
 
 .componentTitle {
     font-family: "Roboto";
-    font-size: 19px;
-    font-weight: bold;
-    color: #5e5e5e;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #474747;
+
+    margin-bottom: 12px;
 }
 
 .sectionTitle {
     font-family: "Roboto";
     font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #474747;
+
+    margin: 8px 0 2px 0;
 }
 
-.sectionTitle {
-    margin-top: 8px;
-}
+.updateStreamAddressForm {
+    width: 100%;
 
-.updateStreamUrlForm {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
 }
 
-#changeStreamUrlButton {
+#updateStreamAddressButton {
+    width: 150px;
     padding: 10px 0;
     border-radius: 5px;
     background: #5A8BFF;
-    min-width:150px;
-    font-size:12px;
-    text-transform: uppercase;
+
     color:#fff;
+    font-size:12px;
     font-weight:700;
     letter-spacing:1px;
 }
 
-#inputStreamUrl {
+#updateStreamAddressTextbox {
     border: 1px solid #41bee4;
     width: calc(100% - 180px);
 }

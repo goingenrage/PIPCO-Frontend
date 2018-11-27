@@ -1,14 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SettingsService } from '../shared/settings.service';
 import { Subscription } from 'rxjs';
 import { Settings } from '../shared/models/settings';
+import { SettingsService } from '../shared/settings.service';
 
 @Component({
   selector: 'pipco-video-settings',
   templateUrl: './video-settings.component.html',
   styleUrls: ['./video-settings.component.css']
 })
-export class VideoSettingsComponent implements OnInit {
+export class VideoSettingsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private settings: Settings;
 
