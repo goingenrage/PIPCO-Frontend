@@ -46,7 +46,6 @@ export class EventLogComponent implements OnInit {
 
   public onTableScroll(event: Event): void {
     if (event.target["offsetHeight"] + event.target["scrollTop"] >= event.target["scrollHeight"]) {
-      console.log("End");
       this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
         this.eventLogEntries = this.eventLogEntries.concat(result);
       }));

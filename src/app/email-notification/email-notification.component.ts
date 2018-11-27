@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NotificationEmail } from '../shared/models/notification-email';
 import { EmailService } from '../shared/email.service';
 import { Subscription } from 'rxjs';
