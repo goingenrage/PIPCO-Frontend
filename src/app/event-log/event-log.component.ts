@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, OnInit, OnDestroy } from '@angular/core';
+=======
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+>>>>>>> ab1e1e439cf92734e81790e0b2e9369581ee3628
 import { EventLogEntry } from '../shared/models/event-log-entry';
 import { EventService } from '../shared/event.service';
 import { Subscription, interval } from 'rxjs';
@@ -17,6 +21,8 @@ export class EventLogComponent implements OnInit, OnDestroy {
   private eventLogEntries: EventLogEntry[];
   private nextEventLogPageToFetch: number = 0;
   private eventLogPageSize: number = 10;
+
+  @Output() recoring = new EventEmitter<File>();
 
   constructor(private eventService: EventService, private domSanitizer: DomSanitizer) { }
 
@@ -54,5 +60,12 @@ export class EventLogComponent implements OnInit, OnDestroy {
         this.eventLogEntries = this.eventLogEntries.concat(result);
       }));
     }
+  }
+
+  public playRecording(filename: string){
+    this.subscriptions.push(this.eventService.getRecording(filename).subscribe(result => {
+        let file = new File([result], "recording.mp4", {type: "video/mp4", lastModified: Date.now()});
+        this.recoring.emit(file);
+    }));
   }
 }

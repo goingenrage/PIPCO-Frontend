@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'pipco-video',
@@ -8,10 +8,24 @@ import { Component, OnInit, Input } from '@angular/core';
 export class VideoComponent implements OnInit {
 
   @Input() srcUrl: string;
+  @ViewChild('video') video;
+
+  private recording = false;
   private videoTitle: string = "IP Camera Live Stream.";
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public onPlayRecording(file: File){    
+    this.recording = true;
+    this.videoTitle = "Replay Recording."
+    this.video.nativeElement.innerHTML = '<source src="' + window.URL.createObjectURL(file) + '" type="video/mp4" >';
+  }
+
+  public onResumeLivestream(){
+    this.recording = false;
+    this.videoTitle = "IP Camera Live Stream."
   }
 }
