@@ -17,12 +17,8 @@ export class MainpageComponent implements OnInit {
 
   ngOnInit() {
   }
-<<<<<<< HEAD
-}
-=======
 
   public onPlayRecording(file: File){
     this.video.onPlayRecording(file);
   }
 }
->>>>>>> ab1e1e439cf92734e81790e0b2e9369581ee3628

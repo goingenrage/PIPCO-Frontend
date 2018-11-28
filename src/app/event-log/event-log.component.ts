@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, OnInit, OnDestroy } from '@angular/core';
-=======
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
->>>>>>> ab1e1e439cf92734e81790e0b2e9369581ee3628
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { EventLogEntry } from '../shared/models/event-log-entry';
 import { EventService } from '../shared/event.service';
 import { Subscription, interval } from 'rxjs';
