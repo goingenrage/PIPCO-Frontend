@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EventLogEntry } from '../shared/models/event-log-entry';
 import { EventService } from '../shared/event.service';
 import { Subscription, interval } from 'rxjs';
@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './event-log.component.html',
   styleUrls: ['./event-log.component.css']
 })
-export class EventLogComponent implements OnInit {
+export class EventLogComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = false;
@@ -34,6 +34,10 @@ export class EventLogComponent implements OnInit {
         let newEventLogEntries: EventLogEntry[] = result.filter(entry => this.eventLogEntries.slice(0, result.length).find(element => element.id === entry.id) === undefined);
         this.eventLogEntries = newEventLogEntries.concat(this.eventLogEntries);
       });
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
   public removeEventLogEntry(id: number): void {

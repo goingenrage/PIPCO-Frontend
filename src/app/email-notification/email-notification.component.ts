@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './email-notification.component.html',
   styleUrls: ['./email-notification.component.css']
 })
-export class EmailNotificationComponent implements OnInit {
+export class EmailNotificationComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = true;

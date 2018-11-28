@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import { LoginCredentials } from '../shared/models/login-credentials';
@@ -9,13 +9,17 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private wrongLoginInformation: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() { }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(entry => entry.unsubscribe());
+  }
 
   public login(event: Event) {
     event.preventDefault();
