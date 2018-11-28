@@ -2,6 +2,10 @@ img {
     width: 100%;
 }
 
+video {
+    width: 100%;
+}
+
 .videoTitleContainer {
     display: flex;
     margin-bottom: 10px;
