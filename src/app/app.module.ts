@@ -13,8 +13,6 @@ import { TitleBarComponent } from './title-bar/title-bar.component';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 import { VideoSettingsComponent } from './video-settings/video-settings.component';
 import { RangeSliderComponent } from './range-slider/range-slider.component';
-import { GenericButtonComponent } from './generic-button/generic-button.component';
-import { DirectionalPadComponent } from './directional-pad/directional-pad.component';
 import { EmailService } from './shared/email.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -29,9 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     EventLogComponent,
     TitleBarComponent,
     VideoSettingsComponent,
-    RangeSliderComponent,
-    GenericButtonComponent,
-    DirectionalPadComponent
+    RangeSliderComponent
   ],
   imports: [
     BrowserModule,
