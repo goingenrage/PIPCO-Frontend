@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'pipco-mainpage',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
+  @ViewChild('video') video;
   private videoSource: string = "http://127.0.0.1:8002/videostream";
                                 //"http://192.168.0.35/cgi-bin/videostream.cgi?user=admin&pwd=admin";
                                 //"http://eckardtscholz.viewnetcam.com/nphMotionJpeg?Resolution=640x480";
@@ -17,4 +18,7 @@ export class MainpageComponent implements OnInit {
   ngOnInit() {
   }
 
+  public onPlayRecording(file: File){
+    this.video.onPlayRecording(file);
+  }
 }

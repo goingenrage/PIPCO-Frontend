@@ -2,4 +2,6 @@
     <h1>Currently Watching:&nbsp;</h1>
     <h2>{{ this.videoTitle }}</h2>
 </div>
-<img src="{{ this.srcUrl }}" alt="Video could not be displayed.">
+<button *ngIf="this.recording" (click)="this.onResumeLivestream()">Back</button>
+<video [hidden]="!this.recording" controls="" autoplay="" name="media" #video></video>
+<img [hidden]="this.recording" src="{{ this.srcUrl }}" alt="Video could not be displayed.">
