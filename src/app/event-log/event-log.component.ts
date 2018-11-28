@@ -18,7 +18,7 @@ export class EventLogComponent implements OnInit, OnDestroy {
   private nextEventLogPageToFetch: number = 0;
   private eventLogPageSize: number = 10;
 
-  @Output() recoring = new EventEmitter<File>();
+  @Output() recording = new EventEmitter<File>();
 
   constructor(private eventService: EventService, private domSanitizer: DomSanitizer) { }
 
@@ -61,7 +61,7 @@ export class EventLogComponent implements OnInit, OnDestroy {
   public playRecording(filename: string){
     this.subscriptions.push(this.eventService.getRecording(filename).subscribe(result => {
         let file = new File([result], "recording.mp4", {type: "video/mp4", lastModified: Date.now()});
-        this.recoring.emit(file);
+        this.recording.emit(file);
     }));
   }
 }

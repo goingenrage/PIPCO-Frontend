@@ -1,23 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { LoginCredentials } from './models/login-credentials';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-
-  //private isAuthenticated: boolean = JSON.parse(localStorage.getItem("isAuthenticated")) || false;
+export class AuthService implements OnDestroy {
+  private subscriptions: Subscription[] = [];
   public isAuthenticated: boolean = false;
 
   constructor(private http: HttpClient) { }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach(entry => entry.unsubscribe());
+  }
+
   public authenticate(loginCredentials: LoginCredentials): Observable<boolean> {
     let response = this.http.post<boolean>(environment.backendAdress + "/login", loginCredentials, environment.backendHttpOptions)
     return new Observable(observer => {
-      response.subscribe(result => {
+      this.subscriptions.push(response.subscribe(result => {
         if (result) {
           this.isAuthenticated = true;
         }
@@ -26,7 +29,7 @@ export class AuthService {
       }, error => {
         observer.next(this.isAuthenticated);
         observer.complete();
-      });
+      }));
     });
   }
 }
