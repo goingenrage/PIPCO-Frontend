@@ -13,6 +13,7 @@ video {
 }
 
 .textSection {
+    align-self: center;
     display: flex;
     font-family: "Roboto";
     font-size: 14px;
@@ -35,6 +36,5 @@ button {
     color: #fff;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 5px;
     display: block;
 }
