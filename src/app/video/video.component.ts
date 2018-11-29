@@ -22,6 +22,7 @@ export class VideoComponent implements OnInit {
     this.recording = true;
     this.videoTitle = "Replay Recording."
     this.video.nativeElement.innerHTML = '<source src="' + window.URL.createObjectURL(file) + '" type="video/mp4" >';
+    this.video.nativeElement.load();
   }
 
   public onResumeLivestream(){
