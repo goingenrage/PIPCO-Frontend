@@ -51,4 +51,8 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
       this.notificationEmails = this.notificationEmails.filter(notificationEmail => notificationEmail.id != result["mail_id"]);
     }));
   }
+
+  private onIsEnabledChange(isEnabled: boolean) {
+    this.isEnabled = isEnabled;
+  }
 }

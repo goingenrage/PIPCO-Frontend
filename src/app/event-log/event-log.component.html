@@ -1,5 +1,5 @@
 <div class="eventLogContainer">
-    <pipco-title-bar title="Event Log" [isEnabled]="this.isEnabled"></pipco-title-bar>
+    <pipco-title-bar title="Event Log" [isEnabled]="this.isEnabled" (isEnabledChange)="this.onIsEnabledChange($event)"></pipco-title-bar>
 
     <div class="tableRow tableHeadRow">
         <div class="tableHead tableCell columnThumbnail">Thumbnail</div>

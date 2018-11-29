@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'pipco-title-bar',
@@ -9,9 +9,14 @@ export class TitleBarComponent implements OnInit {
 
   @Input() title: boolean;
   @Input() isEnabled: boolean;
+  @Output() isEnabledChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  private isEnabledChanged() {
+    this.isEnabledChange.emit(this.isEnabled);
   }
 }

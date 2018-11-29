@@ -13,7 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class EventLogComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
-  private isEnabled: boolean = false;
+  private isEnabled: boolean = true;
   private eventLogEntries: EventLogEntry[];
   private nextEventLogPageToFetch: number = 0;
   private eventLogPageSize: number = 10;
@@ -27,7 +27,7 @@ export class EventLogComponent implements OnInit, OnDestroy {
       this.eventLogEntries = result;
     }));
 
-    interval(7000)
+    interval(5000)
       .pipe(
         startWith(0),
         switchMap(() => this.eventService.getEventLogEntries(0, this.eventLogPageSize))
@@ -63,5 +63,9 @@ export class EventLogComponent implements OnInit, OnDestroy {
         let file = new File([result], "recording.mp4", {type: "video/mp4", lastModified: Date.now()});
         this.recording.emit(file);
     }));
+  }
+
+  private onIsEnabledChange(isEnabled: boolean) {
+    this.isEnabled = isEnabled;
   }
 }

@@ -1,5 +1,5 @@
 <div class="emailNotificationContainer">
-    <pipco-title-bar title="E-Mail Notifications" [isEnabled]="this.isEnabled"></pipco-title-bar>
+    <pipco-title-bar title="E-Mail Notifications" [isEnabled]="this.isEnabled" (isEnabledChange)="this.onIsEnabledChange($event)"></pipco-title-bar>
 
     <form class="addEmailAddressForm" (submit)="this.addEmailAddress($event)">
         <button type="submit">+</button>

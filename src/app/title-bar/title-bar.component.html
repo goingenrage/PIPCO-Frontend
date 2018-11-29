@@ -2,7 +2,7 @@
   <div class="title">{{ this.title }}</div>
   <div class="toggleSwitchContainer">
     <div class="toggleSwitchText">OFF</div>
-    <ui-switch [(ngModel)]="this.isEnabled" size="small" color="#4E7AB5"></ui-switch>
+    <ui-switch [(ngModel)]="this.isEnabled" (click)="this.isEnabledChanged()" size="small" color="#4E7AB5"></ui-switch>
     <div class="toggleSwitchText">ON</div>
   </div>
 </div>
