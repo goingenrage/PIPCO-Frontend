@@ -4,6 +4,7 @@ import { EventService } from '../shared/event.service';
 import { Subscription, interval } from 'rxjs';
 import { startWith, switchMap } from "rxjs/operators";
 import { DomSanitizer } from '@angular/platform-browser';
+import { SettingsService } from '../shared/settings.service';
 
 @Component({
   selector: 'pipco-event-log',
@@ -20,7 +21,11 @@ export class EventLogComponent implements OnInit, OnDestroy {
 
   @Output() recording = new EventEmitter<File>();
 
-  constructor(private eventService: EventService, private domSanitizer: DomSanitizer) { }
+  constructor(
+    private eventService: EventService, 
+    private domSanitizer: DomSanitizer,
+    private settingsService: SettingsService
+  ) { }
 
   ngOnInit() {
     this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
@@ -65,7 +70,9 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }));
   }
 
-  private onIsEnabledChange(isEnabled: boolean) {
-    this.isEnabled = isEnabled;
+  public onIsEnabledChange(isEnabled) {
+    this.subscriptions.push(this.settingsService.changeSettings({"log_enabled": isEnabled}).subscribe(result => {
+      this.isEnabled = result["log_enabled"];
+    }));
   }
 }

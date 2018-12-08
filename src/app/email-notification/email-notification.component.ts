@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NotificationEmail } from '../shared/models/notification-email';
 import { EmailService } from '../shared/email.service';
 import { Subscription } from 'rxjs';
+import { SettingsService } from '../shared/settings.service';
 
 @Component({
   selector: 'pipco-email-notification',
@@ -14,11 +15,17 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
   private isEnabled: boolean = true;
   private notificationEmails: NotificationEmail[] = [];
 
-  constructor(private emailService: EmailService) { }
+  constructor(
+    private emailService: EmailService,
+    private settingsService: SettingsService
+  ) { }
 
   ngOnInit() {
     this.subscriptions.push(this.emailService.getNotificationEmails().subscribe(result => {
       this.notificationEmails = this.notificationEmails.concat(result);
+    }));
+    this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {
+      this.isEnabled = result["global_notify"];
     }));
   }
 
@@ -52,7 +59,9 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
     }));
   }
 
-  private onIsEnabledChange(isEnabled: boolean) {
-    this.isEnabled = isEnabled;
+  public onIsEnabledChange(isEnabled) {
+    this.subscriptions.push(this.settingsService.changeSettings({"global_notify": isEnabled}).subscribe(result => {
+      this.isEnabled = result["global_notify"];
+    }));
   }
 }
