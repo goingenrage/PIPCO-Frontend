@@ -3,7 +3,7 @@
   
     <div class="sectionTitle">Source Livestream URL</div>
     <form class="updateSettingForm" (submit)="this.onSettingsChange({streamaddress: $event.target['streamAddressTextbox'].value})">
-        <input type="text" id="treamAddressTextbox" class="textBoxLarge" value="{{ this.settings.streamaddress }}" required>
+        <input type="text" id="streamAddressTextbox" class="textBoxLarge" value="{{ this.settings.streamaddress }}" required>
         <button type="submit">SAVE</button>
     </form>
 

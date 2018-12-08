@@ -15,7 +15,7 @@
 }
 
 .updateSettingForm {
-    min-width: 700px;
+    min-width: 600px;
     max-width: 900px;
     display: flex;
     flex-direction: row;
@@ -64,8 +64,8 @@ button {
 }
 
 .textBoxLarge {
-    max-width: 1000px;
-    min-width: 500px;
+    max-width: 700px;
+    min-width: 400px;
 }
 
 .textBoxSmall {
