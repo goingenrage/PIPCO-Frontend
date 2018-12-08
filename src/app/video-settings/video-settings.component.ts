@@ -17,7 +17,7 @@ export class VideoSettingsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {
       this.settings = result;
-    }))
+    }));
   }
 
   ngOnDestroy() {

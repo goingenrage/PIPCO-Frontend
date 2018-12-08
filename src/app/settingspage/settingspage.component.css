@@ -1,0 +1,79 @@
+.settingsPageContainer {
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 60px 50px;
+}
+
+.componentTitle {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #474747;
+    margin-bottom: 12px;
+}
+
+.updateSettingForm {
+    min-width: 700px;
+    max-width: 900px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.inputAfterTextWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+
+.inputAfterText {
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    margin-left: 6px;
+}
+
+button {
+    width: 150px;
+    padding: 10px 0;
+    border-radius: 5px;
+    background: #5A8BFF;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.sectionTitle {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #474747;
+    margin: 12px 0 2px 0;
+}
+
+#returnButton {
+    margin-top: 50px;
+    width: 200px;
+}
+
+.textBoxLarge {
+    max-width: 1000px;
+    min-width: 500px;
+}
+
+.textBoxSmall {
+    width: 100px;
+}
+
+.textBoxLarge,
+.textBoxSmall {
+    padding: 0px 4px;
+    border: 1px solid #41bee4;
+}

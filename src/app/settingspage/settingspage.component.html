@@ -1,3 +1,35 @@
-<p>
-  settingspage works!
-</p>
+<div class="settingsPageContainer" *ngIf="this.settings">
+    <div class="componentTitle">Settings</div>
+  
+    <div class="sectionTitle">Source Livestream URL</div>
+    <form class="updateSettingForm" (submit)="this.onSettingsChange({streamaddress: $event.target['streamAddressTextbox'].value})">
+        <input type="text" id="treamAddressTextbox" class="textBoxLarge" value="{{ this.settings.streamaddress }}" required>
+        <button type="submit">SAVE</button>
+    </form>
+
+    <div class="sectionTitle">Cliplength</div>
+    <form class="updateSettingForm" (submit)="this.onSettingsChange({cliplength: $event.target['cliplengthTextBox'].value})">
+      <div class="inputAfterTextWrapper">
+          <input type="text" id="cliplengthTextBox" class="textBoxSmall" value="{{ this.settings.cliplength }}" required>
+          <div class="inputAfterText">Seconds</div>
+      </div>
+        <button type="submit">SAVE</button>
+    </form>
+
+    <div class="sectionTitle">Maximum Log Count</div>
+    <form class="updateSettingForm" (submit)="this.onSettingsChange({cliplength: $event.target['maxLogsTextBox'].value})">
+        <input type="text" id="maxLogsTextBox" class="textBoxSmall" value="{{ this.settings.max_logs }}" required>
+        <button type="submit">SAVE</button>
+    </form>
+
+    <div class="sectionTitle">Cliplength</div>
+    <form class="updateSettingForm" (submit)="this.onSettingsChange({cliplength: $event.target['maxStorageTextBox'].value})">
+      <div class="inputAfterTextWrapper">
+          <input type="text" id="maxStorageTextBox" class="textBoxSmall" value="{{ this.settings.max_storage }}" required>
+          <div class="inputAfterText">MegaByte</div>
+      </div>
+        <button type="submit">SAVE</button>
+    </form>
+
+  <button id="returnButton" (click)="this.returnToMainPage()">RETURN TO MAIN PAGE</button>
+</div>
