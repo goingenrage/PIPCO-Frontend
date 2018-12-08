@@ -6,6 +6,12 @@
     padding: 18px 36px 18px 0;
 }
 
+.iconContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
 img {
     cursor: pointer;
 }
