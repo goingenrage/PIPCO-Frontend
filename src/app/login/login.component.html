@@ -10,9 +10,10 @@
     <div><input type="password" id="password" placeholder="Password" required></div>
     <div class="submitSection">
         <button type="submit">LOGIN</button>
-        <div class="errorMessage" *ngIf="this.errorText" class="errorText">
+        <div *ngIf="this.errorText" class="errorText">
           {{ this.errorText }}
         </div>
+        <img *ngIf="this.isLoading" class="loadingGif" src="assets/img/loading.gif">
     </div>
   </form>
 </div>

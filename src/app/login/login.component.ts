@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class LoginComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private errorText: string;
+  private isLoading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -23,16 +24,20 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public login(event: Event) {
     event.preventDefault();
+    this.errorText = "";
+    this.isLoading = true;
+
     const loginCredentials: LoginCredentials = {
       user: event.target["username"].value,
       password: event.target["password"].value
     }
     this.subscriptions.push(this.authService.authenticate(loginCredentials).subscribe(result => {
+      this.isLoading = false;
       if (result) {
         this.router.navigate(["main"]);
       }
       else {
-        this.errorText = "Wrong username or password.";
+        this.errorText = "Login failed.";
       }
     }))
   }

@@ -66,11 +66,15 @@ img {
     font-family: 'Roboto';
     display: flex;
     align-items: center;
-    margin-left: 10px;
     font-size: 12px;
     color: red;
 }
 
 .submitSection {
     display: flex;
+}
+
+.errorText,
+.loadingGif {
+    margin-left: 10px;
 }
