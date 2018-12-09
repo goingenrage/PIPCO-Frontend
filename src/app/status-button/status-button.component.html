@@ -1,0 +1,6 @@
+<button type="submit">
+    <div>{{ this.text }}</div>
+    <img *ngIf="this.status === undefined" src="assets/img/loading_white.gif">
+    <img *ngIf="this.status === true" src="assets/img/success_tick.svg">
+    <img *ngIf="this.status === false" class="errorImg" src="assets/img/error_cross.svg">
+</button>

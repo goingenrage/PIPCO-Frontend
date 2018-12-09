@@ -12,7 +12,16 @@ import { Settings } from '../shared/models/settings';
 export class SettingspageComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
-  public settings: Settings;
+  private settings: Settings;
+
+  private statusObject: {
+    streamUrlStatus: boolean,
+    clipLengthStatus: boolean,
+    clipCountStatus: boolean,
+    clipStorageStatus: boolean
+  };
+
+  public test: boolean = false;
 
   constructor(
     private settingsService: SettingsService,
@@ -20,8 +29,20 @@ export class SettingspageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.statusObject = {
+      streamUrlStatus: undefined,
+      clipLengthStatus: undefined,
+      clipCountStatus: undefined,
+      clipStorageStatus: undefined
+    };
     this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {
       this.settings = result;
+      this.statusObject = {
+        streamUrlStatus: true,
+        clipLengthStatus: true,
+        clipCountStatus: true,
+        clipStorageStatus: true
+      };
     }));
   }
 
@@ -29,14 +50,22 @@ export class SettingspageComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(entry => entry.unsubscribe);
   }
 
-  public onSettingsChange(newSettings: Settings) {
-    console.log(newSettings)
+  public onSettingsChange(newSettings: Settings, statusBoolName: string) {
+    this.statusObject[statusBoolName] = undefined;
     this.subscriptions.push(this.settingsService.changeSettings(newSettings).subscribe(result => {
+      
       Object.keys(newSettings).forEach(key => {
-        if (newSettings[key] === result[key]) {
+        console.log(result[key])
+        console.log(result[key] != undefined)
+        if (result[key] != undefined && newSettings[key] === result[key]) {
+          this.statusObject[statusBoolName]= true;
           this.settings[key] = result[key];
         }
-      })
+        else {         
+          this.statusObject[statusBoolName] = false;
+          console.log(this.statusObject[statusBoolName])
+        }
+      });
     }));
   }
 

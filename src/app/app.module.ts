@@ -16,6 +16,7 @@ import { RangeSliderComponent } from './range-slider/range-slider.component';
 import { EmailService } from './shared/email.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingspageComponent } from './settingspage/settingspage.component';
+import { StatusButtonComponent } from './status-button/status-button.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SettingspageComponent } from './settingspage/settingspage.component';
     TitleBarComponent,
     VideoSettingsComponent,
     RangeSliderComponent,
-    SettingspageComponent
+    SettingspageComponent,
+    StatusButtonComponent
   ],
   imports: [
     BrowserModule,

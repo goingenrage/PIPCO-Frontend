@@ -1,0 +1,23 @@
+button {
+    width: 130px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #5A8BFF;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+img {
+    height: 30px;
+    margin-left: 10px;
+}
+
+.errorImg {
+    height: 20px;
+}
