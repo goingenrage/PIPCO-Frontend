@@ -53,20 +53,16 @@ export class SettingspageComponent implements OnInit, OnDestroy {
   public onSettingsChange(newSettings: Settings, statusBoolName: string) {
     this.statusObject[statusBoolName] = undefined;
     this.subscriptions.push(this.settingsService.changeSettings(newSettings).subscribe(result => {
-      
       Object.keys(newSettings).forEach(key => {
-        console.log(result[key])
-        console.log(result[key] != undefined)
         if (result[key] != undefined && newSettings[key] === result[key]) {
           this.statusObject[statusBoolName]= true;
           this.settings[key] = result[key];
         }
         else {         
           this.statusObject[statusBoolName] = false;
-          console.log(this.statusObject[statusBoolName])
         }
       });
-    }));
+    }, error => this.statusObject[statusBoolName] = false));
   }
 
   public returnToMainPage() {
