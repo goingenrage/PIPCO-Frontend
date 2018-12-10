@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { EventLogEntry } from '../shared/models/event-log-entry';
 import { EventService } from '../shared/event.service';
-import { Subscription, interval } from 'rxjs';
+import { Subscription, interval, Observable } from 'rxjs';
 import { startWith, switchMap } from "rxjs/operators";
 import { DomSanitizer } from '@angular/platform-browser';
 import { SettingsService } from '../shared/settings.service';
@@ -32,7 +32,8 @@ export class EventLogComponent implements OnInit, OnDestroy {
       this.eventLogEntries = result;
     }));
 
-    interval(5000)
+
+    this.subscriptions.push(interval(5000)
       .pipe(
         startWith(0),
         switchMap(() => this.eventService.getEventLogEntries(0, this.eventLogPageSize))
@@ -40,7 +41,7 @@ export class EventLogComponent implements OnInit, OnDestroy {
       .subscribe(result => {
         let newEventLogEntries: EventLogEntry[] = result.filter(entry => this.eventLogEntries.slice(0, result.length).find(element => element.id === entry.id) === undefined);
         this.eventLogEntries = newEventLogEntries.concat(this.eventLogEntries);
-      });
+      }));
   }
 
   ngOnDestroy() {
