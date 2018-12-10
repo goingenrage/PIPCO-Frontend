@@ -21,8 +21,6 @@ export class SettingspageComponent implements OnInit, OnDestroy {
     clipStorageStatus: boolean
   };
 
-  public test: boolean = false;
-
   constructor(
     private settingsService: SettingsService,
     private router: Router
@@ -50,7 +48,7 @@ export class SettingspageComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(entry => entry.unsubscribe);
   }
 
-  public onSettingsChange(newSettings: Settings, statusBoolName: string) {
+  public onSettingsSave(newSettings: Settings, statusBoolName: string) {
     this.statusObject[statusBoolName] = undefined;
     this.subscriptions.push(this.settingsService.changeSettings(newSettings).subscribe(result => {
       Object.keys(newSettings).forEach(key => {
@@ -67,5 +65,9 @@ export class SettingspageComponent implements OnInit, OnDestroy {
 
   public returnToMainPage() {
     this.router.navigate(["main"]);
+  }
+
+  public onSettingsChange(newSetting: any, settingName: string, statusBoolName: string) {
+    this.statusObject[statusBoolName] = this.settings[settingName].toString() === newSetting;
   }
 }

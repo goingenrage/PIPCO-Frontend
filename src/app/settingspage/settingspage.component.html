@@ -2,30 +2,30 @@
     <div class="componentTitle">Settings</div>
   
     <div class="sectionTitle">Source Livestream URL</div>
-    <form class="updateSettingForm" (submit)="this.onSettingsChange({streamaddress: $event.target['streamAddressTextbox'].value}, 'streamUrlStatus')">
-        <input type="text" id="streamAddressTextbox" class="textBoxLarge" value="{{ this.settings.streamaddress }}" required>
+    <form class="updateSettingForm" (submit)="this.onSettingsSave({streamaddress: $event.target['streamAddressTextbox'].value}, 'streamUrlStatus')">
+        <input type="text" id="streamAddressTextbox" class="textBoxLarge" value="{{ this.settings.streamaddress }}" (input)="this.onSettingsChange($event.target.value, 'streamaddress', 'streamUrlStatus')" required>
         <pipco-status-button text="SAVED" [status]="this.statusObject.streamUrlStatus"></pipco-status-button>
     </form>
 
     <div class="sectionTitle">Maximum Clip Length</div>
-    <form class="updateSettingForm" (submit)="this.onSettingsChange({cliplength: $event.target['cliplengthTextBox'].value}, 'clipLengthStatus')">
+    <form class="updateSettingForm" (submit)="this.onSettingsSave({cliplength: $event.target['cliplengthTextBox'].value}, 'clipLengthStatus')">
       <div class="inputAfterTextWrapper">
-          <input type="text" id="cliplengthTextBox" class="textBoxSmall" value="{{ this.settings.cliplength }}" required>
+          <input type="text" id="cliplengthTextBox" class="textBoxSmall" value="{{ this.settings.cliplength }}" (input)="this.onSettingsChange($event.target.value, 'cliplength', 'clipLengthStatus')" required>
           <div class="inputAfterText">Seconds</div>
       </div>
       <pipco-status-button text="SAVED" [status]="this.statusObject.clipLengthStatus"></pipco-status-button>
     </form>
 
     <div class="sectionTitle">Maximum Clip Count</div>
-    <form class="updateSettingForm" (submit)="this.onSettingsChange({max_logs: $event.target['maxLogsTextBox'].value}, 'clipCountStatus')">
-        <input type="text" id="maxLogsTextBox" class="textBoxSmall" value="{{ this.settings.max_logs }}" required>
+    <form class="updateSettingForm" (submit)="this.onSettingsSave({max_logs: $event.target['maxLogsTextBox'].value}, 'clipCountStatus')">
+        <input type="text" id="maxLogsTextBox" class="textBoxSmall" value="{{ this.settings.max_logs }}" (input)="this.onSettingsChange($event.target.value, 'max_logs', 'clipCountStatus')" required>
         <pipco-status-button text="SAVED" [status]="this.statusObject.clipCountStatus"></pipco-status-button>
     </form>
 
     <div class="sectionTitle">Maximum Clip Storage</div>
-    <form class="updateSettingForm" (submit)="this.onSettingsChange({max_storage: $event.target['maxStorageTextBox'].value}, 'clipStorageStatus')">
+    <form class="updateSettingForm" (submit)="this.onSettingsSave({max_storage: $event.target['maxStorageTextBox'].value}, 'clipStorageStatus')">
       <div class="inputAfterTextWrapper">
-          <input type="text" id="maxStorageTextBox" class="textBoxSmall" value="{{ this.settings.max_storage }}" required>
+          <input type="text" id="maxStorageTextBox" class="textBoxSmall" value="{{ this.settings.max_storage }}" (input)="this.onSettingsChange($event.target.value, 'max_storage', 'clipStorageStatus')" required>
           <div class="inputAfterText">MegaByte</div>
       </div>
       <pipco-status-button text="SAVED" [status]="this.statusObject.clipStorageStatus"></pipco-status-button>
