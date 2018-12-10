@@ -17,13 +17,13 @@
     </form>
 
     <div class="sectionTitle">Maximum Clip Count</div>
-    <form class="updateSettingForm" (submit)="this.onSettingsChange({cliplength: $event.target['maxLogsTextBox'].value}, 'clipCountStatus')">
+    <form class="updateSettingForm" (submit)="this.onSettingsChange({max_logs: $event.target['maxLogsTextBox'].value}, 'clipCountStatus')">
         <input type="text" id="maxLogsTextBox" class="textBoxSmall" value="{{ this.settings.max_logs }}" required>
         <pipco-status-button text="SAVED" [status]="this.statusObject.clipCountStatus"></pipco-status-button>
     </form>
 
     <div class="sectionTitle">Maximum Clip Storage</div>
-    <form class="updateSettingForm" (submit)="this.onSettingsChange({cliplength: $event.target['maxStorageTextBox'].value}, 'clipStorageStatus')">
+    <form class="updateSettingForm" (submit)="this.onSettingsChange({max_storage: $event.target['maxStorageTextBox'].value}, 'clipStorageStatus')">
       <div class="inputAfterTextWrapper">
           <input type="text" id="maxStorageTextBox" class="textBoxSmall" value="{{ this.settings.max_storage }}" required>
           <div class="inputAfterText">MegaByte</div>
