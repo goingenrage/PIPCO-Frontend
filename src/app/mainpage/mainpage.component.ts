@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { SettingsService } from '../shared/settings.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'pipco-mainpage',
@@ -6,16 +8,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./mainpage.component.css']
 })
 export class MainpageComponent implements OnInit {
-
   @ViewChild('video') video;
-  private videoSource: string = "http://127.0.0.1:8002/videostream";
+  private videoSource: string = environment.backendAdress + "/videostream";
 
-  constructor() { }
+  constructor(
+    private settingsService: SettingsService
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  public onPlayRecording(file: File){
-    this.video.onPlayRecording(file);
+  onPlayRecording(file: File): void {
+    this.video.startClip(file);
   }
 }

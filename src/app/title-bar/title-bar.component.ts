@@ -6,7 +6,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./title-bar.component.css']
 })
 export class TitleBarComponent implements OnInit {
-
   @Input() title: boolean;
   @Input() isEnabled: boolean;
   @Output() isEnabledChange: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -16,7 +15,7 @@ export class TitleBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  private isEnabledChanged() {
+  isEnabledChanged(): void {
     this.isEnabledChange.emit(this.isEnabled);
   }
 }

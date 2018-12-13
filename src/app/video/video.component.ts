@@ -6,11 +6,9 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
-
   @Input() srcUrl: string;
   @ViewChild('video') video;
-
-  private recording = false;
+  private isPlayingClip = false;
   private videoTitle: string = "IP Camera Live Stream.";
 
   constructor() { }
@@ -18,15 +16,15 @@ export class VideoComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onPlayRecording(file: File){    
-    this.recording = true;
-    this.videoTitle = "Replay Recording."
+  startClip(file: File): void {    
+    this.isPlayingClip = true;
+    this.videoTitle = "Motion Detection Clip."
     this.video.nativeElement.innerHTML = '<source src="' + window.URL.createObjectURL(file) + '" type="video/mp4" >';
     this.video.nativeElement.load();
   }
 
-  public onResumeLivestream(){
-    this.recording = false;
+  resumeLivestream(): void {
+    this.isPlayingClip = false;
     this.videoTitle = "IP Camera Live Stream."
   }
 }

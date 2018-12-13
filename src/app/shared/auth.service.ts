@@ -11,13 +11,15 @@ export class AuthService implements OnDestroy {
   private subscriptions: Subscription[] = [];
   public isAuthenticated: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnDestroy() {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
-  public authenticate(loginCredentials: LoginCredentials): Observable<boolean> {
+  authenticate(loginCredentials: LoginCredentials): Observable<boolean> {
     let response = this.http.post<boolean>(environment.backendAdress + "/login", loginCredentials, environment.backendHttpOptions)
     return new Observable(observer => {
       this.subscriptions.push(response.subscribe(result => {

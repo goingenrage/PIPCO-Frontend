@@ -33,13 +33,13 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
-  public toggleEmailNotificationStatus(event: Event, notificationEmail: NotificationEmail): void {
+  toggleEmailNotificationStatus(event: Event, notificationEmail: NotificationEmail): void {
     this.subscriptions.push(this.emailService.toggleEmailNotificationStatus(notificationEmail.id).subscribe(result => {
       notificationEmail.notify = result["notify"] === "True";
     }));
   }
 
-  public addEmailAddress(event: Event): void {
+  addEmailAddress(event: Event): void {
     event.preventDefault();
     const newEmailAdress: string = event.target["emailAddressInput"].value;
     if (this.notificationEmails.find(notificationEmail => notificationEmail.address === newEmailAdress) === undefined) {
@@ -53,13 +53,13 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
     };
   }
 
-  public removeEmail(id: number): void {
+  removeEmail(id: number): void {
     this.subscriptions.push(this.emailService.removeEmail(id).subscribe(result => {
       this.notificationEmails = this.notificationEmails.filter(notificationEmail => notificationEmail.id != result["mail_id"]);
     }));
   }
 
-  public onIsEnabledChange(isEnabled) {
+  onIsEnabledChange(isEnabled): void {
     this.subscriptions.push(this.settingsService.changeSettings({"global_notify": isEnabled}).subscribe(result => {
       this.isEnabled = result["global_notify"];
     }));

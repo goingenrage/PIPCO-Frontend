@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
-  public login(event: Event) {
+  login(event: Event): void {
     event.preventDefault();
     this.errorText = "";
     this.isLoading = true;

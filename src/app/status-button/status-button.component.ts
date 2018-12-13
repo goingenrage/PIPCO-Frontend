@@ -6,12 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./status-button.component.css']
 })
 export class StatusButtonComponent implements OnInit {
-
-  constructor() { }
-
   @Input() text: string;
   @Input() status: boolean;
 
-  ngOnInit() {
-  }
+  constructor() { }
+
+  ngOnInit() { }
 }

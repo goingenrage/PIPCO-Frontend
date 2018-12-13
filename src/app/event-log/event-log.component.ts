@@ -12,13 +12,11 @@ import { SettingsService } from '../shared/settings.service';
   styleUrls: ['./event-log.component.css']
 })
 export class EventLogComponent implements OnInit, OnDestroy {
-
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = true;
   private eventLogEntries: EventLogEntry[];
   private nextEventLogPageToFetch: number = 0;
   private eventLogPageSize: number = 10;
-
   @Output() recording = new EventEmitter<File>();
 
   constructor(
@@ -49,7 +47,7 @@ export class EventLogComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
-  public removeEventLogEntry(id: number): void {
+  removeEventLogEntry(id: number): void {
     this.subscriptions.push(this.eventService.removeEventLogEntry(id).subscribe(result => {
       if (result["log_id"] == id) {
         this.eventLogEntries = this.eventLogEntries.filter(eventLogEntry => eventLogEntry.id != id);
@@ -57,7 +55,7 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }));
   }
 
-  public onTableScroll(event: Event): void {
+  onTableScroll(event: Event): void {
     if (event.target["offsetHeight"] + event.target["scrollTop"] >= event.target["scrollHeight"]) {
       this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
         this.eventLogEntries = this.eventLogEntries.concat(result);
@@ -65,14 +63,17 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }
   }
 
-  public playRecording(filename: string){
+  playRecording(filename: string): void {
     this.subscriptions.push(this.eventService.getRecording(filename).subscribe(result => {
-        let file = new File([result], "recording.mp4", {type: "video/mp4", lastModified: Date.now()});
+        const file = new File([result], "recording.mp4", {
+          type: "video/mp4", 
+          lastModified: Date.now()
+        });
         this.recording.emit(file);
     }));
   }
 
-  public onIsEnabledChange(isEnabled) {
+  onIsEnabledChange(isEnabled): void {
     this.subscriptions.push(this.settingsService.changeSettings({"log_enabled": isEnabled}).subscribe(result => {
       this.isEnabled = result["log_enabled"];
     }));

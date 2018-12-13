@@ -24,7 +24,7 @@ export class VideoSettingsComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
-  public onSettingsChange(newSettings: Settings) {
+  changeSettings(newSettings: Settings): void {
     this.subscriptions.push(this.settingsService.changeSettings(newSettings).subscribe(result => {
       Object.keys(newSettings).forEach(key => {
         if (newSettings[key] === result[key]) {

@@ -3,7 +3,7 @@
         <div class="titlePrimer">Currently Watching:&nbsp;</div>
         <div>{{ this.videoTitle }}</div>
     </div>
-    <button *ngIf="this.recording" (click)="this.onResumeLivestream()">Return to Livestream</button>
+    <button *ngIf="this.isPlayingClip" (click)="this.resumeLivestream()">Return to Livestream</button>
 </div>
-<video [hidden]="!this.recording" controls="" autoplay="" name="media" #video></video>
-<img [hidden]="this.recording" src="{{ this.srcUrl }}" alt="Video could not be displayed.">
+<video [hidden]="!this.isPlayingClip" controls="" autoplay="" name="media" #video></video>
+<img [hidden]="this.isPlayingClip" src="{{ this.srcUrl }}" alt="Video could not be displayed.">

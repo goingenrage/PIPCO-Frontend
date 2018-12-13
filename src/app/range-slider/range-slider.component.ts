@@ -12,9 +12,7 @@ export class RangeSliderComponent implements OnInit {
   @Input() step: number = 1;
   @Input() color1: string = "#1f437c";
   @Input() color2: string = "#c7c7c7";
-
   @Output() valueChange = new EventEmitter<number>();
-
   private sliderBackgroundStyle: Object;
 
   constructor() { }
@@ -23,12 +21,12 @@ export class RangeSliderComponent implements OnInit {
     this.updateSliderBackground();
   }
 
-  private onSliderChanges() {
+  private onSliderChanges(): void {
     this.valueChange.emit(this.value);
     this.updateSliderBackground();
   }
 
-  private updateSliderBackground() {
+  private updateSliderBackground(): void {
     const colorStopPos: number = (this.value - this.min) / (this.max - this.min);
     this.sliderBackgroundStyle = {
       "background-image": "-webkit-gradient(" +

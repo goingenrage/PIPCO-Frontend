@@ -10,7 +10,6 @@ import { Settings } from '../shared/models/settings';
   styleUrls: ['./settingspage.component.css']
 })
 export class SettingspageComponent implements OnInit, OnDestroy {
-
   private subscriptions: Subscription[] = [];
   private settings: Settings;
   private downloadingBackup: boolean = false;
@@ -45,11 +44,11 @@ export class SettingspageComponent implements OnInit, OnDestroy {
     }));
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscriptions.forEach(entry => entry.unsubscribe);
   }
 
-  public onSettingsSave(newSettings: Settings, statusBoolName: string) {
+  onSettingsSave(newSettings: Settings, statusBoolName: string): void {
     this.statusObject[statusBoolName] = undefined;
     this.subscriptions.push(this.settingsService.changeSettings(newSettings).subscribe(result => {
       Object.keys(newSettings).forEach(key => {
@@ -64,15 +63,15 @@ export class SettingspageComponent implements OnInit, OnDestroy {
     }, error => this.statusObject[statusBoolName] = false));
   }
 
-  public returnToMainPage() {
+  returnToMainPage(): void {
     this.router.navigate(["main"]);
   }
 
-  public onSettingsChange(newSetting: any, settingName: string, statusBoolName: string) {
+  onSettingsChange(newSetting: any, settingName: string, statusBoolName: string): void {
     this.statusObject[statusBoolName] = this.settings[settingName].toString() === newSetting;
   }
 
-  public downloadBackup() {
+  downloadBackup(): void {
     this.downloadingBackup = true;
     this.subscriptions.push(this.settingsService.downloadBackup().subscribe(result => {
       this.downloadingBackup = false;
@@ -81,8 +80,8 @@ export class SettingspageComponent implements OnInit, OnDestroy {
       });
       const a: any = document.createElement('a');
       a.href = window.URL.createObjectURL(resultBlob);
-      //const now = new Date();
-      a.download = "backup.zip"; // + now.getDay() + "_" + now.getMonth() + "_" + now.getFullYear() + 
+      const now = new Date();
+      a.download = "backup_" + now.getDate() + "_" + (now.getMonth() + 1) + "_" + now.getFullYear() + ".zip";
       a.click();
     }));
   }

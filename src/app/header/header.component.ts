@@ -14,15 +14,14 @@ export class HeaderComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  public logout() {
+  logout() {
     this.authService.isAuthenticated = false;
     this.router.navigate([""]);
   }
 
-  public refresh() {
+  refresh(): void {
     location.reload();
   }
-}
+} 
