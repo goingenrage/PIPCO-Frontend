@@ -3,7 +3,6 @@ import { SettingsService } from '../shared/settings.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Settings } from '../shared/models/settings';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'pipco-settingspage',
@@ -25,8 +24,7 @@ export class SettingspageComponent implements OnInit, OnDestroy {
 
   constructor(
     private settingsService: SettingsService,
-    private router: Router,
-    private domSanitizer: DomSanitizer
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -82,9 +80,9 @@ export class SettingspageComponent implements OnInit, OnDestroy {
         type: 'application/zip'
       });
       const a: any = document.createElement('a');
-      a.href = this.domSanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(resultBlob));
+      a.href = window.URL.createObjectURL(resultBlob);
       //const now = new Date();
-      a.download = "pipco_backup.zip"; // + now.getDay() + "_" + now.getMonth() + "_" + now.getFullYear() + 
+      a.download = "backup.zip"; // + now.getDay() + "_" + now.getMonth() + "_" + now.getFullYear() + 
       a.click();
     }));
   }
