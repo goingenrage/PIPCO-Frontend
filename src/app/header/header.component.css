@@ -9,10 +9,23 @@
 .iconContainer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100px;
+    height: 40px;
 }
 
 img {
     cursor: pointer;
     user-select: none;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    margin-top: 6px;
+}
+
+.logoutIcon {
+    height: 34px;
+    width: 34px;
 }

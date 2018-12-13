@@ -1,7 +1,8 @@
 <div class="headerContainer">
   <img alt="PIPCO" src="assets/img/pipco_logo_white.svg" (click)="refresh()" title="Refresh Page">
   <div class="iconContainer">
-    <img *ngIf="this.authService?.isAuthenticated === true" (click)="openSettingsPage()" title="Settings" alt="Settings" src="assets/img/settings.svg">
-    <img *ngIf="this.authService?.isAuthenticated === true" (click)="logout()" title="Logout" alt="Logout" src="assets/img/logout.svg">  
+    <a *ngIf="this.router.url === '/settings'" routerLink="/main" routerLinkActive="active"><img class="icon" title="Home" alt="Home" src="assets/img/home.svg"></a>
+    <a *ngIf="this.router.url === '/main'" routerLink="/settings" routerLinkActive="active"><img class="icon" title="Settings" alt="Settings" src="assets/img/settings.svg"></a>
+    <img *ngIf="this.authService?.isAuthenticated === true" class="logoutIcon" (click)="logout()" title="Logout" alt="Logout" src="assets/img/logout.svg">
   </div>
 </div>
