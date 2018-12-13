@@ -13,6 +13,7 @@ export class SettingspageComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
   private settings: Settings;
+  private downloadingBackup: boolean = false;
 
   private statusObject: {
     streamUrlStatus: boolean,
@@ -69,5 +70,12 @@ export class SettingspageComponent implements OnInit, OnDestroy {
 
   public onSettingsChange(newSetting: any, settingName: string, statusBoolName: string) {
     this.statusObject[statusBoolName] = this.settings[settingName].toString() === newSetting;
+  }
+
+  public downloadBackup() {
+    //this.downloadingBackup = true;
+    this.subscriptions.push(this.settingsService.downloadBackup().subscribe(result => {
+      console.log("download success")
+    }, error => console.log("download error")));
   }
 }

@@ -18,4 +18,8 @@ export class SettingsService {
   public changeSettings(newSettings: Settings): Observable<Settings> {
     return this.http.post(environment.backendAdress + "/config", newSettings, environment.backendHttpOptions);
   }
+
+  public downloadBackup(): Observable<Object> {
+    return this.http.get(environment.backendAdress + "/backup", environment.backendHttpOptions);
+  }
 }

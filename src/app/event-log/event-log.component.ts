@@ -31,11 +31,9 @@ export class EventLogComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
       this.eventLogEntries = result;
     }));
-
     this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {
       this.isEnabled = result.log_enabled;
     }));
-
     this.subscriptions.push(interval(5000)
       .pipe(
         startWith(0),

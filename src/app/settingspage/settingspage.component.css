@@ -39,7 +39,6 @@
 }
 
 button {
-    width: 150px;
     padding: 10px 0;
     border-radius: 5px;
     background: #5A8BFF;
@@ -58,8 +57,13 @@ button {
     margin: 12px 0 2px 0;
 }
 
+#backupButton {
+    margin-top: 20px;
+    width: 200px;
+}
+
 #returnButton {
-    margin-top: 50px;
+    margin-top: 40px;
     width: 200px;
 }
 
@@ -76,4 +80,16 @@ button {
 .textBoxSmall {
     padding: 0px 4px;
     border: 1px solid #41bee4;
+}
+
+.backupButtonWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.loadingGif {
+    margin-left: 10px;
+    height: 30px;
 }

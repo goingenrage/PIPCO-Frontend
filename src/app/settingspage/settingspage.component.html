@@ -31,5 +31,12 @@
       <pipco-status-button text="SAVED" [status]="this.statusObject.clipStorageStatus"></pipco-status-button>
     </form>
 
-  <button id="returnButton" (click)="this.returnToMainPage()">RETURN TO MAIN PAGE</button>
+    <div class="backupButtonWrapper">
+        <a href="http://127.0.0.1:8002/backup" (click)="this.downloadBackup()" download>
+            <button id="backupButton" >DOWNLOAD BACKUP<br>(may take several minutes)</button>
+        </a>
+        <img *ngIf="this.downloadingBackup" class="loadingGif" src="assets/img/loading_grey.gif">    
+    </div>
+    
+    <button id="returnButton" (click)="this.returnToMainPage()">RETURN TO MAIN PAGE</button>
 </div>
