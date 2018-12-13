@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Settings } from './models/settings';
 
 @Injectable({
@@ -19,7 +19,9 @@ export class SettingsService {
     return this.http.post(environment.backendAdress + "/config", newSettings, environment.backendHttpOptions);
   }
 
-  public downloadBackup(): Observable<Object> {
-    return this.http.get(environment.backendAdress + "/backup", environment.backendHttpOptions);
+  public downloadBackup() {
+    return this.http.get(environment.backendAdress + "/backup", {
+      responseType: 'arraybuffer'
+    });
   }
 }
