@@ -77,13 +77,14 @@ export class SettingspageComponent implements OnInit, OnDestroy {
   public downloadBackup() {
     this.downloadingBackup = true;
     this.subscriptions.push(this.settingsService.downloadBackup().subscribe(result => {
-      //this.downloadingBackup = false;
+      this.downloadingBackup = false;
       const resultBlob = new Blob([result], {
         type: 'application/zip'
       });
       const a: any = document.createElement('a');
-      a.href = this.domSanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(resultBlob));;
-      a.download = 'backup.zip';
+      a.href = this.domSanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(resultBlob));
+      //const now = new Date();
+      a.download = "pipco_backup.zip"; // + now.getDay() + "_" + now.getMonth() + "_" + now.getFullYear() + 
       a.click();
     }));
   }
