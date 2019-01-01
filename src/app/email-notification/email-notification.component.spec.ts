@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmailNotificationComponent } from './email-notification.component';
+import { TitleBarComponent } from '../title-bar/title-bar.component';
+import { FormsModule } from '@angular/forms';
+import { UiSwitchComponent } from 'ngx-toggle-switch';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('EmailNotificationComponent', () => {
   let component: EmailNotificationComponent;
@@ -8,7 +12,15 @@ describe('EmailNotificationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmailNotificationComponent ]
+      imports: [
+        FormsModule,
+        HttpClientModule
+      ],
+      declarations: [ 
+        EmailNotificationComponent,
+        TitleBarComponent,
+        UiSwitchComponent
+      ]
     })
     .compileComponents();
   }));
