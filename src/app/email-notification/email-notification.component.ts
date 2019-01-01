@@ -10,7 +10,6 @@ import { SettingsService } from '../shared/settings.service';
   styleUrls: ['./email-notification.component.css']
 })
 export class EmailNotificationComponent implements OnInit, OnDestroy {
-
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = true;
   private notificationEmails: NotificationEmail[] = [];
