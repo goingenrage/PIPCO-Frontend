@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RangeSliderComponent } from './range-slider.component';
+import { FormsModule } from '@angular/forms';
 
 describe('RangeSliderComponent', () => {
   let component: RangeSliderComponent;
@@ -8,7 +9,12 @@ describe('RangeSliderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RangeSliderComponent ]
+      imports: [
+        FormsModule
+      ],
+      declarations: [ 
+        RangeSliderComponent
+      ]
     })
     .compileComponents();
   }));
