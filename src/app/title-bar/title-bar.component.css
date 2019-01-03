@@ -1,10 +1,16 @@
 .titleBarContainer {
     background: #f3f6fd;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     border-left: 4px solid #1DBAE1;
     padding: 13px 18px;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .title {
@@ -16,6 +22,8 @@
 }
 
 .toggleSwitchContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 

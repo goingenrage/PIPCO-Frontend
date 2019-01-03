@@ -2,16 +2,27 @@
     height: 500px;
     border: 1px solid #f9f9f9;
     min-width: 500px;
-    box-shadow: 3px 3px 12px 0px #0000001a;
+    -webkit-box-shadow: 3px 3px 12px 0px #0000001a;
+            box-shadow: 3px 3px 12px 0px #0000001a;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .deleteButton {
     width: 26px;
     height: 26px;
-    transform: rotate(45deg);
-    user-select: none;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     cursor: pointer;
     background: transparent;
     color: #ff0000;
@@ -31,6 +42,8 @@
 
 .tableRow {
     padding-left: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     border-bottom: 1px solid #f2f2f2;
 }
@@ -42,9 +55,15 @@
 .tableCell {
     font-family: "Roboto";
     padding: 2px 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .tableHead {
@@ -58,33 +77,43 @@
 }
 
 .tableRow .tableCell:first-of-type {
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
 
 .thumbnail {
     margin-left: 5px;
+    -webkit-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
     transition: all .1s ease-in-out;
     height: 40px;
 }
 
 .thumbnail:hover {
-    transform: scale(1.36);
+    -webkit-transform: scale(1.36);
+        -ms-transform: scale(1.36);
+            transform: scale(1.36);
 }
 
 .columnThumbnail {
     padding: 6px;
     cursor: pointer;
-    flex-basis: 20%;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
 }
 
 .columnTimestamp {
-    flex-basis: 34%;
+    -ms-flex-preferred-size: 34%;
+        flex-basis: 34%;
 }
 
 .columnMessage {
-    flex-basis: 36%;
+    -ms-flex-preferred-size: 36%;
+        flex-basis: 36%;
 }
 
 .columnDelete {
-    flex-basis: 10%;
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
 }

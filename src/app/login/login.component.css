@@ -1,12 +1,18 @@
 .loginContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin: 0 auto;
     padding: 50px;
     width: 500px;
     margin-top: 18vh;
     border: 1px solid #f9f9f9;
-    box-shadow: 3px 3px 12px 0px #0000001a;
+    -webkit-box-shadow: 3px 3px 12px 0px #0000001a;
+            box-shadow: 3px 3px 12px 0px #0000001a;
 }
 
 .loginText {
@@ -29,8 +35,13 @@
 }
 
 .loginForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .loginForm > * {
@@ -59,18 +70,25 @@
 
 img {
     height: 32px;
-    align-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
 }
 
 .errorText {
     font-family: 'Roboto';
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     font-size: 12px;
     color: red;
 }
 
 .submitSection {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 

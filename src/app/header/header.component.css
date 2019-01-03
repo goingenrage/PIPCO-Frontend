@@ -1,22 +1,38 @@
 .headerContainer {
+    background-image: -webkit-gradient(linear, left top, right top, from(#0b2b54), color-stop(#1f437c), color-stop(#345da6), color-stop(#4b77d1), to(#6493ff));
+    background-image: -webkit-linear-gradient(left, #0b2b54, #1f437c, #345da6, #4b77d1, #6493ff);
+    background-image: -o-linear-gradient(left, #0b2b54, #1f437c, #345da6, #4b77d1, #6493ff);
     background-image: linear-gradient(to right, #0b2b54, #1f437c, #345da6, #4b77d1, #6493ff);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     height: 80px;
     padding: 18px 36px 18px 0;
 }
 
 .iconContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100px;
     height: 40px;
 }
 
 img {
     cursor: pointer;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .icon {

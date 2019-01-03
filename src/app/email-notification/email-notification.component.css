@@ -2,16 +2,27 @@
     height: 240px;
     border: 1px solid #f9f9f9;
     min-width: 500px;
-    box-shadow: 3px 3px 12px 0px #0000001a;
+    -webkit-box-shadow: 3px 3px 12px 0px #0000001a;
+            box-shadow: 3px 3px 12px 0px #0000001a;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .deleteButton {
     width: 26px;
     height: 26px;
-    transform: rotate(45deg);
-    user-select: none;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     cursor: pointer;
     background: transparent;
     color: #ff0000;
@@ -19,8 +30,12 @@
 }
 
 .addEmailAddressForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 16px 0 0 13px;
     font-size: 14px;
 }
@@ -34,8 +49,10 @@
     border: 1px solid #d3d3d3;
     color: #a0a0a0;
     font-weight: 800;
-    flex-shrink: 0;
-    box-shadow: 0px 0px 1px 0px #00000099;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-shadow: 0px 0px 1px 0px #00000099;
+            box-shadow: 0px 0px 1px 0px #00000099;
 }
 
 .addEmailAddressForm input {
@@ -58,6 +75,8 @@
 
 .tableRow {
     padding-left: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     border-bottom: 1px solid #f2f2f2;
 }
@@ -69,10 +88,17 @@
 .tableCell {
     font-family: "Roboto";
     padding: 2px 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    flex-basis: 20%;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .tableHead {
@@ -86,6 +112,9 @@
 }
 
 .tableRow .tableCell:first-of-type {
-    flex-basis: 60%;
-    justify-content: flex-start;
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
