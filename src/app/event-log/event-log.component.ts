@@ -31,16 +31,24 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }));
     this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {
       this.isEnabled = result.log_enabled;
-    }));
-    this.subscriptions.push(interval(5000)
+      const maxLogs: number = result.max_logs;
+
+      this.subscriptions.push(interval(5000)
       .pipe(
         startWith(0),
         switchMap(() => this.eventService.getEventLogEntries(0, this.eventLogPageSize))
       )
       .subscribe(result => {
+        // checking for new event logs
         let newEventLogEntries: EventLogEntry[] = result.filter(entry => this.eventLogEntries.slice(0, result.length).find(element => element.id === entry.id) === undefined);
+        // adding all new event logs to the existing ones
         this.eventLogEntries = newEventLogEntries.concat(this.eventLogEntries);
+        // if now there are more event logs than allowed, remove the oldest ones to match the allowed array size
+        if(this.eventLogEntries.length > maxLogs) {
+          this.eventLogEntries = this.eventLogEntries.slice(0, maxLogs);
+        }
       }));
+    }));
   }
 
   ngOnDestroy() {
