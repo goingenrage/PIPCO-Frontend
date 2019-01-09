@@ -12,6 +12,10 @@
     outline: none;
 }
 
+.rangeSlider::-moz-range-track {
+    background-color: transparent;
+}
+
 .rangeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
             appearance: none;
@@ -19,6 +23,17 @@
     height: 24px;
     border-radius: 4px; 
     background: rgb(119, 119, 119);
-    cursor: -webkit-grabbing;
-    cursor: grabbing;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.rangeSlider::-moz-range-thumb {
+    -moz-appearance: none;
+            appearance: none;
+    width: 10px;
+    height: 20px;
+    border-radius: 4px; 
+    background: rgb(119, 119, 119);
+    cursor: -moz-grab;
+    cursor: grab;
 }
