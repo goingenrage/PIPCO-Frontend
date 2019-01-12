@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './routing.module';
+import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { VideoComponent } from './video/video.component';
@@ -17,6 +17,10 @@ import { EmailService } from './shared/email.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingspageComponent } from './settingspage/settingspage.component';
 import { StatusButtonComponent } from './status-button/status-button.component';
+import { SettingsService } from './shared/settings.service';
+import { EventService } from './shared/event.service';
+import { AuthService } from './shared/auth.service';
+import { AuthGuard } from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -35,12 +39,16 @@ import { StatusButtonComponent } from './status-button/status-button.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RoutingModule,
     UiSwitchModule,
     HttpClientModule
   ],
   providers: [
-    EmailService
+    EmailService,
+    SettingsService,
+    EventService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [
     AppComponent
