@@ -12,7 +12,9 @@ export class VideoSettingsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private settings: Settings;
 
-  constructor(private settingsService: SettingsService) { }
+  constructor(
+    private settingsService: SettingsService
+  ) { }
 
   ngOnInit() {
     this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {

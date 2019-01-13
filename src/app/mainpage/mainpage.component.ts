@@ -11,9 +11,7 @@ export class MainpageComponent implements OnInit {
   @ViewChild('video') video;
   private videoSource: string = environment.backendAdress + "/videostream";
 
-  constructor(
-    private settingsService: SettingsService
-  ) { }
+  constructor() { }
 
   ngOnInit() { }
 

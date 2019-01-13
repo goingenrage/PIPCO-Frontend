@@ -14,7 +14,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   private errorText: string;
   private isLoading: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService, 
+    private router: Router
+  ) { }
 
   ngOnInit() { }
 
