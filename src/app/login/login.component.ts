@@ -9,7 +9,12 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+/**
+ * @param subscriptions an array of all subscriptions this component is subscribed to
+ * @param errorText the text of the currently displayed error
+ * @param isLoading used to display a loading animation
+ */
+ export class LoginComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private errorText: string;
   private isLoading: boolean = false;
@@ -21,10 +26,17 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() { }
 
+  /**
+   * unsubscribe from all remaining subscriptions upon component destruction
+   */
   ngOnDestroy() {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
+  /**
+   * try to login via AuthService by checking the submitted login credentials
+   * @param event the event that is created upon submitting the login form
+   */
   login(event: Event): void {
     event.preventDefault();
     this.errorText = "";

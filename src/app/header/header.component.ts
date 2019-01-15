@@ -16,11 +16,17 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() { }
 
+  /**
+   * logout via AuthService
+   */
   logout() {
     this.authService.isAuthenticated = false;
     this.router.navigate([""]);
   }
 
+  /**
+   * reload the current route
+   */
   refresh(): void {
     location.reload();
   }

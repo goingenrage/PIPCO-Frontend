@@ -11,20 +11,31 @@ import { SettingsService } from '../shared/settings.service';
   templateUrl: './event-log.component.html',
   styleUrls: ['./event-log.component.css']
 })
+/**
+ * @param subscriptions an array of all subscriptions this component is subscribed to
+ * @param isEnabled motion detection enabledness status which is bound to a toggle switch in the component
+ * @param eventLogEntries a list of all displayed event logs
+ * @param eventLogPageSize the number of event log entries that are fetched with each request at backend api
+ * @param nextEventLogPageToFetch the next batch number of event log entries to be fetched
+ * @param recording used to create events for transmitting recordings over multiple components
+ */
 export class EventLogComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = true;
   private eventLogEntries: EventLogEntry[];
-  private nextEventLogPageToFetch: number = 0;
   private eventLogPageSize: number = 10;
+  private nextEventLogPageToFetch: number = 0;
   @Output() recording = new EventEmitter<File>();
 
   constructor(
-    private eventService: EventService, 
+    private eventService: EventService,
     private domSanitizer: DomSanitizer,
     private settingsService: SettingsService
   ) { }
 
+  /**
+   * get necessary data upon initialization
+   */
   ngOnInit() {
     this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
       this.eventLogEntries = result;
@@ -33,6 +44,7 @@ export class EventLogComponent implements OnInit, OnDestroy {
       this.isEnabled = result.log_enabled;
       const maxLogs: number = result.max_logs;
 
+      // polling for newly created event logs
       this.subscriptions.push(interval(5000)
       .pipe(
         startWith(0),
@@ -51,10 +63,17 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }));
   }
 
+  /**
+   * unsubscribe from all remaining subscriptions upon component destruction
+   */
   ngOnDestroy() {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
+  /**
+   * remove an event log entry via backend api
+   * @param id the id of the event log entry that will be removed
+   */
   removeEventLogEntry(id: number): void {
     this.subscriptions.push(this.eventService.removeEventLogEntry(id).subscribe(result => {
       if (result["log_id"] == id) {
@@ -63,6 +82,10 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }));
   }
 
+  /**
+   * fetch new event log entries upon scrolling to the bottom of the list of event logs
+   * @param event scroll event that is created on scrolling
+   */
   onTableScroll(event: Event): void {
     if (event.target["offsetHeight"] + event.target["scrollTop"] >= event.target["scrollHeight"]) {
       this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
@@ -71,6 +94,10 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * trigger a new event to be emitted for recording replay 
+   * @param filename name of the recording file that will be played
+   */
   playRecording(filename: string): void {
     this.subscriptions.push(this.eventService.getRecording(filename).subscribe(result => {
         const file = new File([result], "recording.mp4", {
@@ -81,6 +108,10 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }));
   }
 
+  /**
+   * change the motion detection enabledness status via backend api
+   * @param isEnabled new motion detection enabledness status
+   */
   onIsEnabledChange(isEnabled): void {
     this.subscriptions.push(this.settingsService.changeSettings({"log_enabled": isEnabled}).subscribe(result => {
       this.isEnabled = result["log_enabled"];
