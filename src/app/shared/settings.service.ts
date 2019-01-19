@@ -13,16 +13,26 @@ export class SettingsService {
     private http: HttpClient
   ) { }
 
+  /**
+   * get all application settings via backend api
+   */
   getSettings(): Observable<Settings> {
-    return this.http.get(environment.backendAdress + "/config", environment.backendHttpOptions);
+    return this.http.get(environment.backendAddress + "/config", environment.backendHttpOptions);
   }
 
+  /**
+   * change application settings via backend api
+   * @param newSettings new setting values to be saved
+   */
   changeSettings(newSettings: Settings): Observable<Settings> {
-    return this.http.post(environment.backendAdress + "/config", newSettings, environment.backendHttpOptions);
+    return this.http.post(environment.backendAddress + "/config", newSettings, environment.backendHttpOptions);
   }
 
+  /**
+   * download a backend backup via backend api
+   */
   downloadBackup(): Observable<ArrayBuffer> {
-    return this.http.get(environment.backendAdress + "/backup", {
+    return this.http.get(environment.backendAddress + "/backup", {
       responseType: 'arraybuffer'
     });
   }
