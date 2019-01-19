@@ -10,7 +10,7 @@ import { SettingsService } from '../shared/settings.service';
   styleUrls: ['./email-notification.component.css']
 })
 /**
- * @param subscriptions an array of all subscriptions this component is subscribed to
+ * @param subscriptions an array of all subscriptions this component is or was subscribed to
  * @param isEnabled global notification status which is bound to a toggle switch in the component
  * @param notificationEmails a list of all registered notification emails
  */
@@ -24,9 +24,6 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
     private settingsService: SettingsService
   ) { }
 
-  /**
-   * get necessary data upon initialization
-   */
   ngOnInit() {
     this.subscriptions.push(this.emailService.getNotificationEmails().subscribe(result => {
       this.notificationEmails = this.notificationEmails.concat(result);
@@ -36,9 +33,6 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
     }));
   }
 
-  /**
-   * unsubscribe from all remaining subscriptions upon component destruction
-   */
   ngOnDestroy() {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
@@ -60,6 +54,7 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
   addEmailAddress(event: Event): void {
     // prevent default event behaviour - page reload for example
     event.preventDefault();
+
     const newEmailAdress: string = event.target["emailAddressInput"].value;
 
     // return if the input email is not a valid email address

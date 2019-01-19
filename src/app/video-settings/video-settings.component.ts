@@ -8,6 +8,10 @@ import { SettingsService } from '../shared/settings.service';
   templateUrl: './video-settings.component.html',
   styleUrls: ['./video-settings.component.css']
 })
+/**
+ * @param subscriptions an array of all subscriptions this component is or was subscribed to
+ * @param settings all application settings that can be set via this component
+ */
 export class VideoSettingsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private settings: Settings;
@@ -26,6 +30,10 @@ export class VideoSettingsComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
 
+  /**
+   * try to save an application setting via backend api
+   * @param newSettings object containing the setting to be saved
+   */
   changeSettings(newSettings: Settings): void {
     this.subscriptions.push(this.settingsService.changeSettings(newSettings).subscribe(result => {
       Object.keys(newSettings).forEach(key => {

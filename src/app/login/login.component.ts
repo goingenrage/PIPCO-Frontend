@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 /**
  * @param subscriptions an array of all subscriptions this component is subscribed to
  * @param errorText the text of the currently displayed error
- * @param isLoading used to display a loading animation
+ * @param isLoading used to display an animation when loading data
  */
  export class LoginComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
@@ -26,9 +26,6 @@ import { Subscription } from 'rxjs';
 
   ngOnInit() { }
 
-  /**
-   * unsubscribe from all remaining subscriptions upon component destruction
-   */
   ngOnDestroy() {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
@@ -38,7 +35,9 @@ import { Subscription } from 'rxjs';
    * @param event the event that is created upon submitting the login form
    */
   login(event: Event): void {
+    // prevent default event behaviour - page reload for example
     event.preventDefault();
+
     this.errorText = "";
     this.isLoading = true;
 

@@ -12,7 +12,7 @@ import { SettingsService } from '../shared/settings.service';
   styleUrls: ['./event-log.component.css']
 })
 /**
- * @param subscriptions an array of all subscriptions this component is subscribed to
+ * @param subscriptions an array of all subscriptions this component is or was subscribed to
  * @param isEnabled motion detection enabledness status which is bound to a toggle switch in the component
  * @param eventLogEntries a list of all displayed event logs
  * @param eventLogPageSize the number of event log entries that are fetched with each request at backend api
@@ -33,9 +33,6 @@ export class EventLogComponent implements OnInit, OnDestroy {
     private settingsService: SettingsService
   ) { }
 
-  /**
-   * get necessary data upon initialization
-   */
   ngOnInit() {
     this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
       this.eventLogEntries = result;
@@ -63,9 +60,6 @@ export class EventLogComponent implements OnInit, OnDestroy {
     }));
   }
 
-  /**
-   * unsubscribe from all remaining subscriptions upon component destruction
-   */
   ngOnDestroy() {
     this.subscriptions.forEach(entry => entry.unsubscribe());
   }
