@@ -1,5 +1,6 @@
 <div class="videoSettingsContainer" *ngIf="this.settings">
     <div class="componentTitle">Video Settings</div>
+    <pipco-mode-selection [(cam_mode)]="this.settings.cam_mode" (change)="this.changeSettings({cam_mode: $event.target['value']})"></pipco-mode-selection>
 
     <div class="sectionTitle">Sensitivity</div>
     <pipco-range-slider [min]="0" [max]="1" [step]="0.1" [(value)]="this.settings.sensitivity" (change)="this.changeSettings({sensitivity: $event.target['value']})" [color1]="'#431ede'"></pipco-range-slider>

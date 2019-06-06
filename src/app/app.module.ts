@@ -21,6 +21,7 @@ import { SettingsService } from './shared/settings.service';
 import { EventService } from './shared/event.service';
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
+import { ModeSelectionComponent } from './mode-selection/mode-selection.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthGuard } from './shared/auth.guard';
     VideoSettingsComponent,
     RangeSliderComponent,
     SettingspageComponent,
-    StatusButtonComponent
+    StatusButtonComponent,
+    ModeSelectionComponent
   ],
   imports: [
     BrowserModule,
