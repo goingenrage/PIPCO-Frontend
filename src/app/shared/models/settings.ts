@@ -7,5 +7,6 @@ export interface Settings {
     log_enabled?: boolean,
     cliplength?: number,
     max_logs?: number,
-    max_storage?: number
+    max_storage?: number,
+    cam_mode?: number
 }
