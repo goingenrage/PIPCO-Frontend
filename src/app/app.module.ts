@@ -22,6 +22,7 @@ import { EventService } from './shared/event.service';
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
 import { ModeSelectionComponent } from './mode-selection/mode-selection.component';
+import { FrEventLogComponent } from './fr-event-log/fr-event-log.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ModeSelectionComponent } from './mode-selection/mode-selection.componen
     RangeSliderComponent,
     SettingspageComponent,
     StatusButtonComponent,
-    ModeSelectionComponent
+    ModeSelectionComponent,
+    FrEventLogComponent
   ],
   imports: [
     BrowserModule,

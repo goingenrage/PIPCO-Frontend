@@ -7,19 +7,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SettingsService } from '../shared/settings.service';
 
 @Component({
-  selector: 'pipco-event-log',
-  templateUrl: './event-log.component.html',
-  styleUrls: ['./event-log.component.css']
+  selector: 'pipco-fr-event-log',
+  templateUrl: './fr-event-log.component.html',
+  styleUrls: ['./fr-event-log.component.css']
 })
-/**
- * @param subscriptions an array of all subscriptions this component is or was subscribed to
- * @param isEnabled motion detection enabledness status which is bound to a toggle switch in the component
- * @param eventLogEntries a list of all displayed event logs
- * @param eventLogPageSize the number of event log entries that are fetched with each request at backend api
- * @param nextEventLogPageToFetch the next batch number of event log entries to be fetched
- * @param recording used to create events for transmitting recordings over multiple components
- */
-export class EventLogComponent implements OnInit, OnDestroy {
+export class FrEventLogComponent implements OnInit {
   @Input() title_name: string = "";
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = true;
@@ -39,7 +31,7 @@ export class EventLogComponent implements OnInit, OnDestroy {
       this.eventLogEntries = result;
     }));
     this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {
-      this.isEnabled = result.log_enabled;
+      this.isEnabled = result.fr_log_enabled;
       const maxLogs: number = result.max_logs;
 
       // polling for newly created event logs
@@ -108,8 +100,9 @@ export class EventLogComponent implements OnInit, OnDestroy {
    * @param isEnabled new motion detection enabledness status
    */
   onIsEnabledChange(isEnabled): void {
-    this.subscriptions.push(this.settingsService.changeSettings({"log_enabled": isEnabled}).subscribe(result => {
-      this.isEnabled = result["log_enabled"];
+    this.subscriptions.push(this.settingsService.changeSettings({"fr_log_enabled": isEnabled}).subscribe(result => {
+      this.isEnabled = result["fr_log_enabled"];
     }));
   }
+
 }

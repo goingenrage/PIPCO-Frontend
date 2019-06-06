@@ -5,7 +5,10 @@
   </div>
   <div class="sideContainer">
     <div class="sideElement">
-      <pipco-event-log (recording)="this.onPlayRecording($event)"></pipco-event-log>
+      <pipco-event-log title_name="Motion Detection" (recording)="this.onPlayRecording($event)"></pipco-event-log>
+    </div>
+    <div class="sideElement">
+      <pipco-fr-event-log title_name="Face Recognition" (recording)="this.onPlayRecording($event)"></pipco-fr-event-log>
     </div>
     <div class="sideElement">
       <pipco-email-notification></pipco-email-notification>
