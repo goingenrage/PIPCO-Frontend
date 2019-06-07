@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Settings } from '../shared/models/settings';
 import { SettingsService } from '../shared/settings.service';
@@ -42,5 +42,7 @@ export class VideoSettingsComponent implements OnInit, OnDestroy {
         }
       })
     }));
+    let videoplayer = <HTMLVideoElement> document.getElementById('videoStream');
+    videoplayer.load();
   }
 }
