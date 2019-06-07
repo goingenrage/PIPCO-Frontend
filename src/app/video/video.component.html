@@ -6,4 +6,5 @@
     <button *ngIf="this.isPlayingClip" (click)="this.resumeLivestream()">Return to Livestream</button>
 </div>
 <video [hidden]="!this.isPlayingClip" controls="" autoplay="" name="media" #video></video>
-<img [hidden]="this.isPlayingClip" src="{{ this.srcUrl }}" alt="Video could not be displayed.">
+<!--<img [hidden]="this.isPlayingClip" src="{{ this.srcUrl }}" alt="Video could not be displayed.">-->
+<img [hidden]="this.isPlayingClip" src="https://i.imgur.com/RHpy3Ho.jpg" alt="Video could not be displayed.">

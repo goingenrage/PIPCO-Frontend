@@ -24,12 +24,11 @@
     "ngx-toggle-switch": "^2.0.5",
     "ngx-ui-switch": "^1.6.0",
     "rxjs": "~6.3.3",
-    "zone.js": "~0.8.26",
-    "typescript": "3.1.1"
+    "typescript": "3.1.1",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.10.4",
-    "@angular/cli": "^7.0.4",
     "@angular/compiler-cli": "^7.0.2",
     "@angular/language-service": "^7.0.2",
     "@types/jasmine": "^2.8.11",
