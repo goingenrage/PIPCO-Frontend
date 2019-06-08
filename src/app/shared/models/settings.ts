@@ -9,5 +9,6 @@ export interface Settings {
     cliplength?: number,
     max_logs?: number,
     max_storage?: number,
+    mail_notification?: boolean,
     cam_mode?: number
 }

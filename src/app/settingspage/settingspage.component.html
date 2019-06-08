@@ -31,6 +31,14 @@
       <pipco-status-button text="SAVED" [status]="this.statusObject.clipStorageStatus"></pipco-status-button>
     </form>
 
+    <div class="sectionTitle">E-Mail Notification for unknown persons</div>
+    <form class="updateSettingForm" (submit)="this.onSettingsSave({mail_notification: $event.target['mail_notification'].value}, 'mailnotificationStatus')">
+      <div class="inputAfterTextWrapper">
+          <input type="text" id="mailnotificationTextBox" class="textBoxSmall" value="{{ this.settings.mail_notification }}" (input)="this.onSettingsChange($event.target.value, 'mail_notification', 'mailnotificationStatus')" required>
+      </div>
+      <pipco-status-button text="SAVED" [status]="this.statusObject.clipStorageStatus"></pipco-status-button>
+    </form>
+
     <div class="backupButtonWrapper">
         <button id="backupButton" (click)="this.downloadBackup()">DOWNLOAD BACKUP<br>(may take several minutes)</button>
         <img *ngIf="this.downloadingBackup" class="loadingGif" src="assets/img/loading_grey.gif">    

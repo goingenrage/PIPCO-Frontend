@@ -29,7 +29,8 @@ export class SettingspageComponent implements OnInit, OnDestroy {
     streamUrlStatus: boolean,
     clipLengthStatus: boolean,
     clipCountStatus: boolean,
-    clipStorageStatus: boolean
+    clipStorageStatus: boolean,
+    mailnotificationStatus: boolean
   };
 
   constructor(
@@ -42,7 +43,8 @@ export class SettingspageComponent implements OnInit, OnDestroy {
       streamUrlStatus: undefined,
       clipLengthStatus: undefined,
       clipCountStatus: undefined,
-      clipStorageStatus: undefined
+      clipStorageStatus: undefined,
+      mailnotificationStatus: undefined
     };
     this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {
       this.settings = result;
@@ -50,7 +52,8 @@ export class SettingspageComponent implements OnInit, OnDestroy {
         streamUrlStatus: true,
         clipLengthStatus: true,
         clipCountStatus: true,
-        clipStorageStatus: true
+        clipStorageStatus: true,
+        mailnotificationStatus: true
       };
     }));
   }
