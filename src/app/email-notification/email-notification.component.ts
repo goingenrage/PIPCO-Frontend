@@ -41,8 +41,8 @@ export class EmailNotificationComponent implements OnInit, OnDestroy {
    * toggle the notification status of a notification mail
    * @param notificationEmail the email object which is having its notification status toggled
    */
-  toggleEmailNotificationStatus(notificationEmail: NotificationEmail): void {
-    this.subscriptions.push(this.emailService.toggleEmailNotificationStatus(notificationEmail.id).subscribe(result => {
+  toggleEmailNotificationStatus(id: number): void {
+    this.subscriptions.push(this.emailService.toggleEmailNotificationStatus(id).subscribe(result => {
       notificationEmail.notify = result["notify"] === "True";
     }));
   }
