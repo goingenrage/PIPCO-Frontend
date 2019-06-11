@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
 import { EventLogEntry } from '../shared/models/event-log-entry';
+import { EventLogEntryFr } from '../shared/models/event-log-entry-fr';
 import { EventService } from '../shared/event.service';
 import { Subscription, interval, Observable } from 'rxjs';
 import { startWith, switchMap } from "rxjs/operators";
@@ -15,7 +16,7 @@ export class FrEventLogComponent implements OnInit {
   @Input() title_name: string = "";
   private subscriptions: Subscription[] = [];
   private isEnabled: boolean = true;
-  private eventLogEntries: EventLogEntry[];
+  private eventLogEntries: EventLogEntryFr[];
   private eventLogPageSize: number = 10;
   private nextEventLogPageToFetch: number = 0;
   @Output() recording = new EventEmitter<File>();
@@ -27,7 +28,7 @@ export class FrEventLogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
+    this.subscriptions.push(this.eventService.getEventLogEntriesFr(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
       this.eventLogEntries = result;
     }));
     this.subscriptions.push(this.settingsService.getSettings().subscribe(result => {
@@ -38,11 +39,11 @@ export class FrEventLogComponent implements OnInit {
       this.subscriptions.push(interval(5000)
       .pipe(
         startWith(0),
-        switchMap(() => this.eventService.getEventLogEntries(0, this.eventLogPageSize))
+        switchMap(() => this.eventService.getEventLogEntriesFr(0, this.eventLogPageSize))
       )
       .subscribe(result => {
         // checking for new event logs
-        let newEventLogEntries: EventLogEntry[] = result.filter(entry => this.eventLogEntries.slice(0, result.length).find(element => element.id === entry.id) === undefined);
+        let newEventLogEntries: EventLogEntryFr[] = result.filter(entry => this.eventLogEntries.slice(0, result.length).find(element => element.id === entry.id) === undefined);
         // adding all new event logs to the existing ones
         this.eventLogEntries = newEventLogEntries.concat(this.eventLogEntries);
         // if now there are more event logs than allowed, remove the oldest ones to match the allowed array size
@@ -62,7 +63,7 @@ export class FrEventLogComponent implements OnInit {
    * @param id the id of the event log entry that will be removed
    */
   removeEventLogEntry(id: number): void {
-    this.subscriptions.push(this.eventService.removeEventLogEntry(id).subscribe(result => {
+    this.subscriptions.push(this.eventService.removeEventLogEntryFr(id).subscribe(result => {
       if (result["log_id"] == id) {
         this.eventLogEntries = this.eventLogEntries.filter(eventLogEntry => eventLogEntry.id != id);
       }
@@ -75,7 +76,7 @@ export class FrEventLogComponent implements OnInit {
    */
   onTableScroll(event: Event): void {
     if (event.target["offsetHeight"] + event.target["scrollTop"] >= event.target["scrollHeight"]) {
-      this.subscriptions.push(this.eventService.getEventLogEntries(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
+      this.subscriptions.push(this.eventService.getEventLogEntriesFr(this.nextEventLogPageToFetch++, this.eventLogPageSize).subscribe(result => {  
         this.eventLogEntries = this.eventLogEntries.concat(result);
       }));
     }
@@ -86,9 +87,9 @@ export class FrEventLogComponent implements OnInit {
    * @param filename name of the recording file that will be played
    */
   playRecording(filename: string): void {
-    this.subscriptions.push(this.eventService.getRecording(filename).subscribe(result => {
-        const file = new File([result], "recording.mp4", {
-          type: "video/mp4", 
+    this.subscriptions.push(this.eventService.getRecordingFr(filename).subscribe(result => {
+        const file = new File([result], "recording.avi", {
+          type: "video/avi", 
           lastModified: Date.now()
         });
         this.recording.emit(file);
