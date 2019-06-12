@@ -88,8 +88,8 @@ export class FrEventLogComponent implements OnInit {
    */
   playRecording(filename: string): void {
     this.subscriptions.push(this.eventService.getRecordingFr(filename).subscribe(result => {
-        const file = new File([result], "recording.avi", {
-          type: "video/avi", 
+        const file = new File([result], "recording.mp4", {
+          type: "video/mp4", 
           lastModified: Date.now()
         });
         this.recording.emit(file);
