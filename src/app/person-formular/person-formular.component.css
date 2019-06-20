@@ -1,0 +1,121 @@
+.emailNotificationContainer {
+    height: 300px;
+    border: 1px solid #f9f9f9;
+    min-width: 500px;
+    -webkit-box-shadow: 3px 3px 12px 0px #0000001a;
+            box-shadow: 3px 3px 12px 0px #0000001a;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.deleteButton {
+    width: 26px;
+    height: 26px;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+    background: transparent;
+    color: #ff0000;
+    font-size: 24px;
+}
+
+form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: block;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 16px 0 0 13px;
+    font-size: 14px;
+}
+
+form button {
+    /* display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: #f9f9f9;
+    border: 1px solid #d3d3d3;
+    color: #a0a0a0;
+    font-weight: 800;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-shadow: 0px 0px 1px 0px #00000099;
+            box-shadow: 0px 0px 1px 0px #00000099; */
+}
+
+form input, form textarea {
+    border: 1px solid black;
+    margin: 0;
+    padding: 2px;
+    height: 30px;
+    width: 100%;
+}
+
+.tableContainer {
+    height: 100px;
+    border-top: 1px solid #f9f9f9;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.tableHeadRow {
+    padding: 6px 20px 2px 0;
+}
+
+.tableRow {
+    padding-left: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.tableRow:nth-child(even) {
+    background: #f9f9f999;
+}
+
+.tableCell {
+    font-family: "Roboto";
+    padding: 2px 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.tableHead {
+    padding: 8px 4px;
+    font-size: 16px;
+    color: #4F4F4F;
+}
+
+.tableHeadRow .tableHead:first-of-type {
+    font-weight: bold;
+}
+
+.tableRow .tableCell:first-of-type {
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+}
