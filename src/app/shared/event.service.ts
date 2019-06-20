@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EventLogEntry } from './models/event-log-entry';
+import { EventLogEntryFr } from './models/event-log-entry-fr';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -22,6 +23,10 @@ export class EventService {
     return this.http.get<EventLogEntry[]>(environment.backendAddress + "/logs/" + pageNumber + "/" + batchSize);
   }
 
+  getEventLogEntriesFr(pageNumber: number, batchSize: number): Observable<EventLogEntryFr[]> {
+    return this.http.get<EventLogEntryFr[]>(environment.backendAddress + "/logs_fr/" + pageNumber + "/" + batchSize);
+  }
+
   /**
    * remove an event log entry via backend api
    * @param id id of the event log entry to be removed
@@ -29,11 +34,19 @@ export class EventService {
   removeEventLogEntry(id: number): Observable<number> {
     return this.http.delete<number>(environment.backendAddress + "/log/" + id, environment.backendHttpOptions);
   }
+  removeEventLogEntryFr(id: number): Observable<number> {
+    return this.http.delete<number>(environment.backendAddress + "/log_fr/" + id, environment.backendHttpOptions);
+  }
 
   /**
    * get the file of a recorded clip via backend api
    * @param filename the name of the recorded clip to be fetched
    */
+    getRecordingFr(filename: string): Observable<Blob> {
+    return this.http.get(environment.backendAddress + "/recording_fr/" + encodeURI(filename), {
+      responseType: 'blob'
+    });
+  }
   getRecording(filename: string): Observable<Blob> {
     return this.http.get(environment.backendAddress + "/recording/" + encodeURI(filename), {
       responseType: 'blob'

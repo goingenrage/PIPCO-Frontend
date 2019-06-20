@@ -21,8 +21,12 @@ import { SettingsService } from './shared/settings.service';
 import { EventService } from './shared/event.service';
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ModeSelectionComponent } from './mode-selection/mode-selection.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FrEventLogComponent } from './fr-event-log/fr-event-log.component';
+import { PersonService } from './shared/person.service';
+import { PersonFormularComponent } from './person-formular/person-formular.component';
 
 @NgModule({
   declarations: [
@@ -39,20 +43,27 @@ import { FrEventLogComponent } from './fr-event-log/fr-event-log.component';
     SettingspageComponent,
     StatusButtonComponent,
     ModeSelectionComponent,
-    FrEventLogComponent
+    FrEventLogComponent,
+    PersonFormularComponent,
+    
   ],
   imports: [
     BrowserModule,
     RoutingModule,
     UiSwitchModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     EmailService,
     SettingsService,
     EventService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    PersonService
   ],
   bootstrap: [
     AppComponent
