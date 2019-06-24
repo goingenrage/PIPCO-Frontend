@@ -1,5 +1,7 @@
-<div class="emailNotificationContainer">
-  <pipco-title-bar title="Add person"></pipco-title-bar>
+<div class="personContainer">
+  <div class="titleBarContainer">
+    <div class="title">Create a new person</div>
+  </div>
 
 <!-- Personen Formular -->
 <form novalidate (ngSubmit)="saveTask(form.value)" #form="ngForm">
@@ -25,7 +27,9 @@
 
   
   <input type="file" (change)="onFileSelected($event)"> 
-  <button type="button" [disabled]="this.submitButtonDisabled" (click)="onUpload()">Upload</button>
+  <div class="buttonContainer">
+    <button type="button" [disabled]="this.submitButtonDisabled" (click)="onUpload()">Upload</button>
+  </div>
 
 </form>
 </div>
