@@ -10,15 +10,10 @@ export class PersonService {
 
   constructor( private http: HttpClient ) { }
  /**
-   * add a new notification email via backend api
-   * @param address the email address of the new notification email
+   * add a person object into the database using the REST interface
+   * @param person person object, which should be created
    */
-  addNewPerson(fd : FormData) : Observable<FormData>{
-    var httpOptions = { 
-      headers: new HttpHeaders({
-        'Content-Type':  'multipart/form-data'
-      })
-    }; 
-    return this.http.post<FormData>(environment.backendAddress + "/createperson", fd, httpOptions);
+  addNewPerson(person : Person) : Observable<Person>{
+    return this.http.post<Person>(environment.backendAddress + "/createperson", person, environment.backendHttpOptions);
   }
 }

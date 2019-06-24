@@ -19,31 +19,26 @@ import { Injectable } from '@angular/core';
 export class PersonFormularComponent {
 
   constructor( private personService: PersonService  ){} 
-  
+  submitButtonDisabled: Boolean = true;
   selectedFile: File = null;
   person: Person = new Person();
   fileToUpload: File = null;
 
-
-  saveTask(value:any){
-    console.log(value);
-  }
-  
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-}
-  onFileSelected(event){
+onFileSelected(event, setFileHash){
     this.selectedFile = <File>event.target.files[0];
-  }
+    var reader = new FileReader();
+    reader.onloadend = (e) => {
+      this.person.file = reader.result;
+    }
+    if (this.selectedFile != null){
+      this.submitButtonDisabled=null;
+    }else{
+      this.submitButtonDisabled=true;
+    }
+    reader.readAsDataURL(this.selectedFile);
+}
 
 onUpload(){
-  const fd = new FormData();
-  fd.append('name', this.person.name);
-  fd.append('surname', this.person.surname);
-  fd.append('comment', this.person.comment);
-  fd.append('image', this.selectedFile, this.selectedFile.name);
-  console.log(fd);
-
-  this.personService.addNewPerson(fd).subscribe(res => console.log(res));
+    this.personService.addNewPerson(this.person).subscribe();
 }
 }
