@@ -1,31 +1,31 @@
 <div class="emailNotificationContainer">
-    <pipco-title-bar title="Add person"></pipco-title-bar>
+  <pipco-title-bar title="Add person"></pipco-title-bar>
 
 <!-- Personen Formular -->
 <form novalidate (ngSubmit)="saveTask(form.value)" #form="ngForm">
 
-    <div class="form-group"> <!-- Personen Formular-->
-      <label>Name</label>
-      <input type="text" class="form-control" name="title" [(ngModel)]="person.name" required/>
-    </div>
+  <div class="form-group"> <!-- Personen Formular-->
+    <label>Name</label>
+    <input type="text" class="form-control" name="title" [(ngModel)]="person.name" required/>
+  </div>
 
-    <div class="form-group"> <!-- Vorname Feld-->
-      <label>Surname</label>
-      <input type="text" class="form-control" name="surname" [(ngModel)]="person.surname" required/>
-    </div>
+  <div class="form-group"> <!-- Vorname Feld-->
+    <label>Surname</label>
+    <input type="text" class="form-control" name="surname" [(ngModel)]="person.surname" required/>
+  </div>
 
-    <div class="form-group"> <!-- Comment Feld-->
-      <label>Comment</label>
-      <textarea class="form-control" name="comment" [(ngModel)]="person.comment"></textarea> 
-    </div>
+  <div class="form-group"> <!-- Comment Feld-->
+    <label>Comment</label>
+    <textarea class="form-control" name="comment" [(ngModel)]="person.comment"></textarea> 
+  </div>
 
-    <div class="form-group"> <!-- Datei auswählen-->
-        <label for="file">Choose File</label>
-    </div>
+  <div class="form-group"> <!-- Datei auswählen-->
+      <label for="file">Choose File</label>
+  </div>
 
-    
-    <input type="file" (change)="onFileSelected($event)"> 
-    <button type="button" (click)="onUpload()">Upload</button>
+  
+  <input type="file" (change)="onFileSelected($event)"> 
+  <button type="button" [disabled]="this.submitButtonDisabled" (click)="onUpload()">Upload</button>
 
-  </form>
+</form>
 </div>
