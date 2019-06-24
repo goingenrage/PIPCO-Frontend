@@ -5,6 +5,7 @@ import { Person } from '../shared/models/person';
 import { PersonService } from '../shared/person.service';
 import { extend } from 'webdriver-js-extender';
 import { Injectable } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'pipco-person-formular',
@@ -19,10 +20,15 @@ import { Injectable } from '@angular/core';
 export class PersonFormularComponent {
 
   constructor( private personService: PersonService  ){} 
+  private subscriptions: Subscription[] = [];
   submitButtonDisabled: Boolean = true;
   selectedFile: File = null;
   person: Person = new Person();
   fileToUpload: File = null;
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(entry => entry.unsubscribe);
+  }
 
 onFileSelected(event, setFileHash){
     this.selectedFile = <File>event.target.files[0];
@@ -39,6 +45,14 @@ onFileSelected(event, setFileHash){
 }
 
 onUpload(){
-    this.personService.addNewPerson(this.person).subscribe();
+    this.subscriptions.push(this.personService.addNewPerson(this.person).subscribe(result =>{
+      if (result["person_id"] != 0){
+        this.person.name = "";
+        this.person.surname = "";
+        this.person.comment = "";
+        this.person.file = null;
+        this.selectedFile = null;
+      }
+    }))
 }
 }
