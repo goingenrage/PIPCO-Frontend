@@ -4,9 +4,11 @@ import { MainpageComponent } from './mainpage.component';
 import { VideoComponent } from '../video/video.component';
 import { VideoSettingsComponent } from '../video-settings/video-settings.component';
 import { EventLogComponent } from '../event-log/event-log.component';
+import { FrEventLogComponent } from '../fr-event-log/fr-event-log.component';
 import { EmailNotificationComponent } from '../email-notification/email-notification.component';
 import { RangeSliderComponent } from '../range-slider/range-slider.component';
 import { TitleBarComponent } from '../title-bar/title-bar.component';
+import { ModeSelectionComponent } from '../mode-selection/mode-selection.component';
 import { FormsModule } from '@angular/forms';
 import { UiSwitchComponent } from 'ngx-toggle-switch';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,7 +31,9 @@ describe('MainpageComponent', () => {
         EmailNotificationComponent,
         RangeSliderComponent,
         TitleBarComponent,
-        UiSwitchComponent
+        UiSwitchComponent,
+        FrEventLogComponent,
+        ModeSelectionComponent
       ]
     })
     .compileComponents();

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
 import { ModeSelectionComponent } from './mode-selection.component';
 
 describe('ModeSelectionComponent', () => {
@@ -8,6 +8,7 @@ describe('ModeSelectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [ ModeSelectionComponent ]
     })
     .compileComponents();

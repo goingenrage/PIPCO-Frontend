@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FrEventLogComponent } from './fr-event-log.component';
+import { TitleBarComponent } from '../title-bar/title-bar.component';
+import { FormsModule } from '@angular/forms';
+import { UiSwitchComponent } from 'ngx-toggle-switch';
+import { HttpClientModule } from '@angular/common/http';
+
 
 describe('FrEventLogComponent', () => {
   let component: FrEventLogComponent;
@@ -8,7 +13,14 @@ describe('FrEventLogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FrEventLogComponent ]
+      imports: [
+        FormsModule,
+        HttpClientModule
+      ],declarations: [ 
+        FrEventLogComponent,
+        TitleBarComponent,
+        UiSwitchComponent
+      ]
     })
     .compileComponents();
   }));
