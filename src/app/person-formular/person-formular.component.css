@@ -1,0 +1,75 @@
+.personContainer {
+    width: 450px;
+    border: 1px solid #f9f9f9;
+    min-width: 300px;
+    -webkit-box-shadow: 3px 3px 12px 0px #0000001a;
+            box-shadow: 3px 3px 12px 0px #0000001a;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.titleBarContainer {
+    background: #f3f6fd;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-left: 4px solid #1DBAE1;
+    padding: 13px 18px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.title{
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #474747;
+}
+
+form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: block;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 16px 0 0 13px;
+    font-size: 14px;
+}
+
+form input, form textarea {
+    border: 1px solid black;
+    margin: 0;
+    padding: 2px;
+    height: 30px;
+    width: 100%;
+}
+button {
+    padding: 10px 0;
+    border-radius: 5px;
+    background: #5A8BFF;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: 150px;
+}
+
+button:disabled {
+    background: #cddcff;
+    color: #000;
+}
+
+.buttonContainer{
+    margin-top: 15px;
+}

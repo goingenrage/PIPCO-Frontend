@@ -10,16 +10,18 @@
         <div class="tableHead tableCell">E-Mail Adress</div>
         <div class="tableHead tableCell">Notifications</div>
         <div class="tableHead tableCell">Delete</div>
+	
     </div>
     <div class="tableContainer">
       <div class="tableRow" *ngFor="let notificationEmail of this.notificationEmails">
           <div class="tableCell">{{ notificationEmail.address }}</div>
           <div class="tableCell">
-              <input type="checkbox" [(ngModel)]="notificationEmail.notify" (change)="this.toggleEmailNotificationStatus($event, notificationEmail)">
+              <input type="checkbox" [(ngModel)]="notificationEmail.notify" (change)="this.toggleEmailNotificationStatus(notificationEmail.id)">
           </div>
           <div class="tableCell">
             <button type="button" class="deleteButton" (click)="this.removeEmail(notificationEmail.id)">+</button>
           </div>
+	
       </div>
     </div>
   </div>
