@@ -9,6 +9,7 @@ import { EmailNotificationComponent } from '../email-notification/email-notifica
 import { RangeSliderComponent } from '../range-slider/range-slider.component';
 import { TitleBarComponent } from '../title-bar/title-bar.component';
 import { ModeSelectionComponent } from '../mode-selection/mode-selection.component';
+import { PersonFormularComponent } from '../person-formular/person-formular.component';
 import { FormsModule } from '@angular/forms';
 import { UiSwitchComponent } from 'ngx-toggle-switch';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,7 +34,8 @@ describe('MainpageComponent', () => {
         TitleBarComponent,
         UiSwitchComponent,
         FrEventLogComponent,
-        ModeSelectionComponent
+        ModeSelectionComponent,
+        PersonFormularComponent
       ]
     })
     .compileComponents();

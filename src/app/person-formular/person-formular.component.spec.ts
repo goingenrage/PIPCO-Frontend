@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { PersonFormularComponent } from './person-formular.component';
+import { PersonService } from '../shared/person.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('PersonFormularComponent', () => {
   let component: PersonFormularComponent;
@@ -8,7 +11,12 @@ describe('PersonFormularComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonFormularComponent ]
+      imports: [
+        FormsModule,
+        HttpClientModule
+    ],
+      declarations: [ PersonFormularComponent ],
+      providers: [PersonService]
     })
     .compileComponents();
   }));

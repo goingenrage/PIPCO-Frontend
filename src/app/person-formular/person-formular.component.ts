@@ -13,10 +13,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./person-formular.component.css']
 })
 
-@Injectable({
-  providedIn: 'root',
-})
-
 export class PersonFormularComponent {
 
   constructor( private personService: PersonService  ){} 
@@ -25,6 +21,8 @@ export class PersonFormularComponent {
   selectedFile: File = null;
   person: Person = new Person();
   fileToUpload: File = null;
+
+  ngOnInit() { }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(entry => entry.unsubscribe);
@@ -41,6 +39,7 @@ onFileSelected(event, setFileHash){
     }else{
       this.submitButtonDisabled=true;
     }
+
     reader.readAsDataURL(this.selectedFile);
 }
 

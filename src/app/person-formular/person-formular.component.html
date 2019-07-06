@@ -3,33 +3,32 @@
     <div class="title">Create a new person</div>
   </div>
 
-<!-- Personen Formular -->
-<form novalidate (ngSubmit)="saveTask(form.value)" #form="ngForm">
-
-  <div class="form-group"> <!-- Personen Formular-->
+  <div>
+    <!-- Vorname Feld-->
     <label>Name</label>
-    <input type="text" class="form-control" name="title" [(ngModel)]="person.name" required/>
+    <input type="text" class="form-control" name="title" (input)="person.name = $event.target.value" required/>
   </div>
 
-  <div class="form-group"> <!-- Vorname Feld-->
+  <div>
+    <!-- Nachname Feld-->
     <label>Surname</label>
-    <input type="text" class="form-control" name="surname" [(ngModel)]="person.surname" required/>
+    <input type="text" class="form-control" name="surname" (input)="person.surname= $event.target.value" required/>
   </div>
 
-  <div class="form-group"> <!-- Comment Feld-->
+  <div>
+    <!-- Kommentar Feld-->
     <label>Comment</label>
-    <textarea class="form-control" name="comment" [(ngModel)]="person.comment"></textarea> 
+    <textarea class="form-control" name="comment" (input)="person.comment= $event.target.value"></textarea> 
   </div>
 
-  <div class="form-group"> <!-- Datei auswählen-->
+  <div class="form-group">
       <label for="file">Choose File</label>
   </div>
 
-  
+  <!-- Datei Auswahl-->
   <input type="file" (change)="onFileSelected($event)" accept="image/jpeg"> 
   <div class="buttonContainer">
     <button type="button" [disabled]="this.submitButtonDisabled" (click)="onUpload()">Upload</button>
   </div>
 
-</form>
 </div>

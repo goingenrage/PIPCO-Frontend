@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { NotificationEmail } from './models/notification-email';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import { Person } from '../shared/models/person';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class PersonService {
 
   constructor( private http: HttpClient ) { }
