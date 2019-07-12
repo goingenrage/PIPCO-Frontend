@@ -23,7 +23,7 @@ export class RangeSliderComponent implements OnInit {
   @Input() color1: string = "#1f437c";
   @Input() color2: string = "#c7c7c7";
   @Output() valueChange = new EventEmitter<number>();
-  private sliderBackgroundStyle: Object;
+  public sliderBackgroundStyle: Object;
 
   constructor() { }
 
@@ -34,7 +34,7 @@ export class RangeSliderComponent implements OnInit {
   /**
    * this method is called when the slider value changes
    */
-  private onSliderChanges(): void {
+  public onSliderChanges(): void {
     this.valueChange.emit(this.value);
     this.updateSliderBackground();
   }

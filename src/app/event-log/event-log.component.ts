@@ -22,8 +22,8 @@ import { SettingsService } from '../shared/settings.service';
 export class EventLogComponent implements OnInit, OnDestroy {
   @Input() title_name: string = "";
   private subscriptions: Subscription[] = [];
-  private isEnabled: boolean = true;
-  private eventLogEntries: EventLogEntry[];
+  public isEnabled: boolean = true;
+  public eventLogEntries: EventLogEntry[];
   private eventLogPageSize: number = 10;
   private nextEventLogPageToFetch: number = 0;
   @Output() recording = new EventEmitter<File>();

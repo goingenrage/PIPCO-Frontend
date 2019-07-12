@@ -17,7 +17,7 @@ import { Settings } from '../shared/models/settings';
  */
 export class SettingspageComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
-  private settings: Settings;
+  public settings: Settings;
   private downloadingBackup: boolean = false;
 
   /**

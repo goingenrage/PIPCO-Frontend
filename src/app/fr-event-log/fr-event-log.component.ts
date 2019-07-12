@@ -15,8 +15,8 @@ import { SettingsService } from '../shared/settings.service';
 export class FrEventLogComponent implements OnInit {
   @Input() title_name: string = "";
   private subscriptions: Subscription[] = [];
-  private isEnabled: boolean = true;
-  private eventLogEntries: EventLogEntryFr[];
+  public isEnabled: boolean = true;
+  public eventLogEntries: EventLogEntryFr[];
   private eventLogPageSize: number = 10;
   private nextEventLogPageToFetch: number = 0;
   @Output() recording = new EventEmitter<File>();

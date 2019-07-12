@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
  */
 export class MainpageComponent implements OnInit {
   @ViewChild('video') video;
-  private videoSource: string = environment.backendAddress + "/videostream";
+  public videoSource: string = environment.backendAddress + "/videostream";
 
   constructor() { }
 

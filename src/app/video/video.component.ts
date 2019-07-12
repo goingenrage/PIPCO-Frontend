@@ -14,8 +14,8 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 export class VideoComponent implements OnInit {
   @Input() srcUrl: string;
   @ViewChild('video') video;
-  private isPlayingClip: boolean = false;
-  private videoTitle: string = "IP Camera Live Stream.";
+  public isPlayingClip: boolean = false;
+  public videoTitle: string = "IP Camera Live Stream.";
 
   constructor() { }
 

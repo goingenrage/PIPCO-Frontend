@@ -16,8 +16,8 @@ import { SettingsService } from '../shared/settings.service';
  */
 export class EmailNotificationComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
-  private isEnabled: boolean = true;
-  private notificationEmails: NotificationEmail[] = [];
+  public isEnabled: boolean = true;
+  public notificationEmails: NotificationEmail[] = [];
 
   constructor(
     private emailService: EmailService,

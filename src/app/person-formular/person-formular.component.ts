@@ -15,7 +15,8 @@ import { Subscription } from 'rxjs';
 
 export class PersonFormularComponent {
 
-  constructor( private personService: PersonService  ){} 
+  constructor(){} 
+  private personService: PersonService;
   private subscriptions: Subscription[] = [];
   submitButtonDisabled: Boolean = true;
   selectedFile: File = null;
@@ -28,7 +29,7 @@ export class PersonFormularComponent {
     this.subscriptions.forEach(entry => entry.unsubscribe);
   }
 
-onFileSelected(event, setFileHash){
+onFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
     var reader = new FileReader();
     reader.onloadend = (e) => {

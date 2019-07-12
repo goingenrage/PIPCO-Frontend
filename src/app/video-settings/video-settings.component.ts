@@ -14,7 +14,7 @@ import { SettingsService } from '../shared/settings.service';
  */
 export class VideoSettingsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
-  private settings: Settings;
+  public settings: Settings;
 
   constructor(
     private settingsService: SettingsService
