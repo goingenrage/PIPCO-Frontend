@@ -15,8 +15,8 @@ import { Subscription } from 'rxjs';
 
 export class PersonFormularComponent {
 
-  constructor(){} 
-  private personService: PersonService;
+  constructor(private personService: PersonService){} 
+  
   private subscriptions: Subscription[] = [];
   submitButtonDisabled: Boolean = true;
   selectedFile: File = null;
